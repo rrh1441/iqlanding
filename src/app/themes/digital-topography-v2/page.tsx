@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { digitalTopographyContent as content } from '@/lib/content/digital-topography';
+import { contentV2 as content } from '@/lib/content-v2';
 
 export default function DigitalTopographyV2() {
   return (

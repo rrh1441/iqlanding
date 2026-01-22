@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { publicHealthContent as content } from '@/lib/content/public-health';
+import { contentV2 as content } from '@/lib/content-v2';
 
 export default function PublicHealthV2() {
   return (

@@ -1,19 +1,17 @@
 import Link from 'next/link';
-import { swissIntelligenceContent as content } from '@/lib/content/swiss-intelligence';
+import { contentV2 as content } from '@/lib/content-v2';
 
 export default function SwissIntelligenceV2() {
   return (
-    <div className="min-h-screen bg-white text-black font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-      {/* Grid Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(to right, #f0f0f0 1px, transparent 1px),
-            linear-gradient(to bottom, #f0f0f0 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
-        }}/>
-      </div>
+    <div className="min-h-screen bg-white text-black font-['Helvetica_Neue',Helvetica,Arial,sans-serif] relative">
+      {/* Grid Background - behind all content */}
+      <div className="fixed inset-0 -z-10 pointer-events-none" style={{
+        backgroundImage: `
+          linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+          linear-gradient(to bottom, #e0e0e0 1px, transparent 1px)
+        `,
+        backgroundSize: '80px 80px'
+      }}/>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black">
@@ -57,22 +55,24 @@ export default function SwissIntelligenceV2() {
       {/* Stats - Bento Grid */}
       <section className="py-24 bg-black text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-12 gap-px bg-gray-800">
-            <div className="col-span-12 bg-black p-8">
+          <div className="border-2 border-gray-700">
+            <div className="p-8 border-b border-gray-700">
               <span className="text-[#ff4400] text-xs font-bold tracking-[0.3em] uppercase">Q1 Results</span>
               <h2 className="text-3xl font-bold mt-2">{content.statsHeadline}</h2>
             </div>
-            {content.stats.map((stat, i) => (
-              <div key={i} className="col-span-12 md:col-span-4 bg-black p-12">
-                <div className="text-6xl lg:text-8xl font-bold tracking-tighter text-[#ff4400]">
-                  {stat.number}
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {content.stats.map((stat, i) => (
+                <div key={i} className={`p-12 ${i < content.stats.length - 1 ? 'border-b md:border-b-0 md:border-r border-gray-700' : ''}`}>
+                  <div className="text-6xl lg:text-8xl font-bold tracking-tighter text-[#ff4400]">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm font-bold tracking-[0.2em] uppercase mt-4 text-gray-400">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-sm font-bold tracking-[0.2em] uppercase mt-4 text-gray-400">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-            <div className="col-span-12 bg-black p-4 text-gray-600 text-xs">
+              ))}
+            </div>
+            <div className="p-4 text-gray-500 text-xs border-t border-gray-700">
               {content.statsFootnote}
             </div>
           </div>
@@ -168,13 +168,13 @@ export default function SwissIntelligenceV2() {
             <h2 className="text-5xl font-bold mt-4">What They Say</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-800">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {content.testimonials.slice(0, 6).map((testimonial, i) => (
-              <div key={i} className="bg-black p-10 flex flex-col">
+              <div key={i} className="border border-gray-700 p-10 flex flex-col">
                 <blockquote className="text-xl leading-relaxed flex-grow">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
-                <div className="mt-8 pt-6 border-t border-gray-800">
+                <div className="mt-8 pt-6 border-t border-gray-700">
                   <div className="font-bold">{testimonial.author}</div>
                   <div className="text-[#ff4400] text-sm mt-1">{testimonial.role}</div>
                 </div>

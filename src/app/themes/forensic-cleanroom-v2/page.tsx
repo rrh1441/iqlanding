@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { forensicCleanroomContent as content } from '@/lib/content/forensic-cleanroom';
+import { contentV2 as content } from '@/lib/content-v2';
 
 export default function ForensicCleanroomV2() {
   return (
