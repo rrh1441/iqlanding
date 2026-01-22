@@ -69,5 +69,8 @@ export const themes = [
   { id: "nature-documentary", name: "Nature Documentary", description: "National Geographic meets conservation" },
   { id: "mission-control", name: "Mission Control", description: "NASA meets air traffic control" },
   { id: "bright-confidence", name: "Bright Confidence", description: "Stripe meets Mailchimp" },
-  { id: "luxury-concierge", name: "Luxury Concierge", description: "High-end insurance, white-glove" }
+  { id: "luxury-concierge", name: "Luxury Concierge", description: "High-end insurance, white-glove" },
+  { id: "blackout-protocol", name: "Blackout Protocol", description: "Brutalist terminal, raw data intelligence" },
+  { id: "silk-road", name: "Silk Road", description: "Dark luxury, editorial magazine, old money mystique" },
+  { id: "signal-noise", name: "Signal/Noise", description: "Generative data viz, living network graphs" }
 ];
