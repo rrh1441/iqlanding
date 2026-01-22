@@ -3,7 +3,7 @@
 
 export const contentV2 = {
   hero: {
-    headline: "The Signal. Not the Noise.",
+    headline: "All Signal. No Noise.",
     subheadline: "Criminals sell your access in private deals. We intercept them. No false positives. No delays. Just threats that matter.",
     cta: "Request My Briefing"
   },
