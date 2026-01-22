@@ -71,6 +71,6 @@ export const themes = [
   { id: "bright-confidence", name: "Bright Confidence", description: "Stripe meets Mailchimp" },
   { id: "luxury-concierge", name: "Luxury Concierge", description: "High-end insurance, white-glove" },
   { id: "blackout-protocol", name: "Blackout Protocol", description: "Brutalist terminal, raw data intelligence" },
-  { id: "silk-road", name: "Silk Road", description: "Dark luxury, editorial magazine, old money mystique" },
-  { id: "signal-noise", name: "Signal/Noise", description: "Generative data viz, living network graphs" }
+  { id: "neue", name: "Neue", description: "Extreme Swiss minimalism, type is the design" },
+  { id: "editorial", name: "Editorial", description: "High-end magazine spread, warm and sophisticated" }
 ];

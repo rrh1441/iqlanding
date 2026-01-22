@@ -11,6 +11,9 @@ const v2Themes = [
   { id: "mission-control-v2", name: "Mission Control V2", description: "CISO pain point copy" },
   { id: "bright-confidence-v2", name: "Bright Confidence V2", description: "CISO pain point copy" },
   { id: "luxury-concierge-v2", name: "Luxury Concierge V2", description: "CISO pain point copy" },
+  { id: "blackout-protocol-v2", name: "Blackout Protocol V2", description: "CISO pain point copy" },
+  { id: "neue-v2", name: "Neue V2", description: "CISO pain point copy" },
+  { id: "editorial-v2", name: "Editorial V2", description: "CISO pain point copy" },
 ];
 
 export default function Home() {
@@ -19,7 +22,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-6 py-20">
         <header className="mb-16">
           <h1 className="text-5xl font-bold mb-4">DarkWebIQ Design Themes</h1>
-          <p className="text-xl text-zinc-400">9 distinct design directions, each with original and CISO pain point copy versions.</p>
+          <p className="text-xl text-zinc-400">12 distinct design directions, each with original and CISO pain point copy versions.</p>
         </header>
 
         {/* Original Themes */}
