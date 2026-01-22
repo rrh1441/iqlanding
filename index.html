@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="swiss-intelligence">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarkWebIQ Design Preview</title>
+
+  <!-- FOUC Prevention -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('dwiq-preview-theme');
+      if (theme) document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+
+  <style>
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sidebar-width: 260px;
+    }
+
+    /* ================================================================
+       THEME 1: Digital Topography
+       Vibe: Exploration, scientific precision, architectural
+       ================================================================ */
+    [data-theme="digital-topography"] {
+      --bg-primary: #1e1e2f;
+      --bg-secondary: #2a2a40;
+      --bg-tertiary: #363652;
+      --bg-card: #2a2a40;
+      --text-primary: #e8e8e8;
+      --text-secondary: #b8b8c8;
+      --text-muted: #8888a0;
+      --accent-primary: #b87333;
+      --accent-hover: #d4894a;
+      --accent-secondary: #4a5568;
+      --border-color: #404060;
+      --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --border-radius: 4px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* ================================================================
+       THEME 2: Swiss Intelligence
+       Vibe: Editorial, authoritative, factual, urgent but calm
+       ================================================================ */
+    [data-theme="swiss-intelligence"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #fafafa;
+      --bg-tertiary: #f0f0f0;
+      --bg-card: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #333333;
+      --text-muted: #666666;
+      --accent-primary: #ff4400;
+      --accent-hover: #e63e00;
+      --accent-secondary: #0066ff;
+      --border-color: #e0e0e0;
+      --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --border-radius: 0px;
+      --shadow: none;
+    }
+
+    /* ================================================================
+       THEME 3: Forensic Cleanroom
+       Vibe: Sterile, safe, transparent, hyper-modern
+       ================================================================ */
+    [data-theme="forensic-cleanroom"] {
+      --bg-primary: #f8f9fa;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e9ecef;
+      --bg-card: rgba(255,255,255,0.8);
+      --text-primary: #212529;
+      --text-secondary: #495057;
+      --text-muted: #6c757d;
+      --accent-primary: #20c997;
+      --accent-hover: #1aa179;
+      --accent-secondary: #17a2b8;
+      --border-color: #dee2e6;
+      --font-heading: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --border-radius: 12px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    /* ================================================================
+       THEME 4: Bioluminescent Deep
+       Vibe: Organic, mysterious, fluid, adapting
+       ================================================================ */
+    [data-theme="bioluminescent-deep"] {
+      --bg-primary: #0a1628;
+      --bg-secondary: #0f2744;
+      --bg-tertiary: #163a5f;
+      --bg-card: rgba(15,39,68,0.9);
+      --text-primary: #e0f0ff;
+      --text-secondary: #a0c4e8;
+      --text-muted: #6090b8;
+      --accent-primary: #00d4ff;
+      --accent-hover: #00a8cc;
+      --accent-secondary: #bf00ff;
+      --border-color: #1e4976;
+      --font-heading: system-ui, -apple-system, sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --border-radius: 16px;
+      --shadow: 0 8px 32px rgba(0,212,255,0.15);
+    }
+
+    /* ================================================================
+       THEME 5: Intelligence Dossier
+       Vibe: The Economist meets declassified CIA briefing
+       ================================================================ */
+    [data-theme="intelligence-dossier"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f5f2ed;
+      --bg-tertiary: #ebe7e0;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #3d3d5c;
+      --text-muted: #6b6b8a;
+      --accent-primary: #c41e3a;
+      --accent-hover: #a01830;
+      --accent-secondary: #b8860b;
+      --border-color: #d4cfc5;
+      --font-heading: Georgia, Cambria, 'Times New Roman', serif;
+      --font-body: Georgia, Cambria, serif;
+      --border-radius: 2px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ================================================================
+       THEME 6: Public Health / Epidemiology
+       Vibe: CDC outbreak dashboard meets preventive medicine
+       ================================================================ */
+    [data-theme="public-health"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f0faf5;
+      --bg-tertiary: #e0f5eb;
+      --bg-card: #ffffff;
+      --text-primary: #1a3a2a;
+      --text-secondary: #2d5a45;
+      --text-muted: #5a8a75;
+      --accent-primary: #10b981;
+      --accent-hover: #059669;
+      --accent-secondary: #f59e0b;
+      --border-color: #c8e6d8;
+      --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: -apple-system, BlinkMacSystemFont, sans-serif;
+      --border-radius: 8px;
+      --shadow: 0 4px 12px rgba(16,185,129,0.1);
+    }
+
+    /* ================================================================
+       THEME 7: Art Deco Detective
+       Vibe: 1920s private eye meets The Grand Budapest Hotel
+       ================================================================ */
+    [data-theme="art-deco-detective"] {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #2d2d2d;
+      --bg-tertiary: #404040;
+      --bg-card: #2d2d2d;
+      --text-primary: #f5f0e6;
+      --text-secondary: #d4c9b5;
+      --text-muted: #a89880;
+      --accent-primary: #d4af37;
+      --accent-hover: #b8962e;
+      --accent-secondary: #722f37;
+      --border-color: #4a4a4a;
+      --font-heading: Georgia, 'Times New Roman', serif;
+      --font-body: Georgia, serif;
+      --border-radius: 0px;
+      --shadow: 0 4px 16px rgba(212,175,55,0.15);
+    }
+
+    /* ================================================================
+       THEME 8: Nature Documentary
+       Vibe: National Geographic meets wildlife conservation
+       ================================================================ */
+    [data-theme="nature-documentary"] {
+      --bg-primary: #faf6f0;
+      --bg-secondary: #f0ebe0;
+      --bg-tertiary: #e5dfd0;
+      --bg-card: #ffffff;
+      --text-primary: #2d3a2d;
+      --text-secondary: #4a5a4a;
+      --text-muted: #6a7a6a;
+      --accent-primary: #d97706;
+      --accent-hover: #b45309;
+      --accent-secondary: #166534;
+      --border-color: #d5cfc0;
+      --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: -apple-system, BlinkMacSystemFont, sans-serif;
+      --border-radius: 6px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    /* ================================================================
+       THEME 9: Mission Control
+       Vibe: NASA meets air traffic control tower
+       ================================================================ */
+    [data-theme="mission-control"] {
+      --bg-primary: #0d1b2a;
+      --bg-secondary: #1b263b;
+      --bg-tertiary: #283d55;
+      --bg-card: #1b263b;
+      --text-primary: #e0e8f0;
+      --text-secondary: #a8b8c8;
+      --text-muted: #6888a8;
+      --accent-primary: #22c55e;
+      --accent-hover: #16a34a;
+      --accent-secondary: #f97316;
+      --border-color: #3a5068;
+      --font-heading: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --border-radius: 4px;
+      --shadow: 0 4px 20px rgba(34,197,94,0.1);
+    }
+
+    /* ================================================================
+       THEME 10: Bright Confidence
+       Vibe: Stripe meets Mailchimp - unapologetically optimistic
+       ================================================================ */
+    [data-theme="bright-confidence"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-primary: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-secondary: #f97316;
+      --border-color: #e2e8f0;
+      --font-heading: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --border-radius: 12px;
+      --shadow: 0 4px 24px rgba(99,102,241,0.12);
+    }
+
+    /* ================================================================
+       THEME 11: Luxury Concierge
+       Vibe: High-end insurance or private security
+       ================================================================ */
+    [data-theme="luxury-concierge"] {
+      --bg-primary: #f9f7f4;
+      --bg-secondary: #f0ebe3;
+      --bg-tertiary: #e8e0d5;
+      --bg-card: #ffffff;
+      --text-primary: #2c2c2c;
+      --text-secondary: #4a4a4a;
+      --text-muted: #787878;
+      --accent-primary: #8b7355;
+      --accent-hover: #6b5a45;
+      --accent-secondary: #2d5a4a;
+      --border-color: #d8d0c5;
+      --font-heading: Georgia, Cambria, 'Times New Roman', serif;
+      --font-body: -apple-system, BlinkMacSystemFont, sans-serif;
+      --border-radius: 4px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    /* ================================================================
+       BASE STYLES
+       ================================================================ */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* ================================================================
+       LAYOUT
+       ================================================================ */
+    .app-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ================================================================
+       THEME SIDEBAR
+       ================================================================ */
+    .theme-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      padding: 1.5rem 1rem;
+      overflow-y: auto;
+      z-index: 100;
+      transition: transform 0.3s ease, background-color 0.2s ease;
+    }
+
+    .sidebar-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-header h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-header p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .theme-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .theme-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      border: 2px solid transparent;
+    }
+
+    .theme-option:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .theme-option:has(input:checked) {
+      background: var(--bg-tertiary);
+      border-color: var(--accent-primary);
+    }
+
+    .theme-option input[type="radio"] {
+      display: none;
+    }
+
+    .color-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      flex-shrink: 0;
+    }
+
+    .theme-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Mobile toggle button */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      width: 44px;
+      height: 44px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 1.25rem;
+    }
+
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 99;
+    }
+
+    /* ================================================================
+       MAIN CONTENT
+       ================================================================ */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      min-width: 0;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      transition: background-color 0.2s ease;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-secondary);
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       HERO SECTION
+       ================================================================ */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background: var(--bg-primary);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent-primary);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: var(--border-radius);
+      transition: background-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* ================================================================
+       STATS SECTION
+       ================================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      display: block;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .stat-footnote {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ================================================================
+       SECTION HEADERS
+       ================================================================ */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       HOW IT WORKS
+       ================================================================ */
+    .steps-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--accent-primary);
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ================================================================
+       SOLUTIONS GRID
+       ================================================================ */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .solution-card {
+      padding: 2rem;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    .solution-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-primary);
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .solution-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .solution-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ================================================================
+       COMPARISON TABLE
+       ================================================================ */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .comparison-table th {
+      background: var(--bg-tertiary);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .check {
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    .comparison-table .cross {
+      color: var(--text-muted);
+    }
+
+    /* ================================================================
+       TESTIMONIALS
+       ================================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-quote {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .author-info h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ================================================================
+       CTA SECTION
+       ================================================================ */
+    .cta-section {
+      background: var(--accent-primary) !important;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: white;
+      color: var(--accent-primary);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: var(--border-radius);
+      transition: transform 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      color: var(--accent-hover);
+    }
+
+    /* ================================================================
+       RESPONSIVE STYLES
+       ================================================================ */
+    @media (max-width: 768px) {
+      .theme-sidebar {
+        transform: translateX(-100%);
+      }
+
+      .theme-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-backdrop.visible {
+        display: block;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      section {
+        padding: 3rem 1.25rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 5rem;
+      }
+
+      .step-card {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Toggle theme menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Backdrop -->
+    <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+
+    <!-- Theme Sidebar -->
+    <aside class="theme-sidebar" role="navigation" aria-label="Theme selection">
+      <div class="sidebar-header">
+        <h2>Design Themes</h2>
+        <p>Click to preview each aesthetic</p>
+      </div>
+
+      <div class="theme-list" role="radiogroup" aria-label="Available themes">
+        <label class="theme-option">
+          <input type="radio" name="theme" value="digital-topography">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #1e1e2f 50%, #b87333 50%)"></span>
+          <span class="theme-name">Topography</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="swiss-intelligence">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #ff4400 50%)"></span>
+          <span class="theme-name">Swiss Intel</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="forensic-cleanroom">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #f8f9fa 50%, #20c997 50%)"></span>
+          <span class="theme-name">Cleanroom</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="bioluminescent-deep">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #0a1628 50%, #00d4ff 50%)"></span>
+          <span class="theme-name">Bioluminescent</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="intelligence-dossier">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #faf8f5 50%, #c41e3a 50%)"></span>
+          <span class="theme-name">Dossier</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="public-health">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #10b981 50%)"></span>
+          <span class="theme-name">Public Health</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="art-deco-detective">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #1a1a1a 50%, #d4af37 50%)"></span>
+          <span class="theme-name">Art Deco</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="nature-documentary">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #faf6f0 50%, #d97706 50%)"></span>
+          <span class="theme-name">Documentary</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="mission-control">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #0d1b2a 50%, #22c55e 50%)"></span>
+          <span class="theme-name">Mission Ctrl</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="bright-confidence">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #6366f1 50%)"></span>
+          <span class="theme-name">Confidence</span>
+        </label>
+
+        <label class="theme-option">
+          <input type="radio" name="theme" value="luxury-concierge">
+          <span class="color-swatch" style="background: linear-gradient(135deg, #f9f7f4 50%, #8b7355 50%)"></span>
+          <span class="theme-name">Concierge</span>
+        </label>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="section-inner">
+          <div class="hero-content">
+            <h1>Stay Off Tomorrow's Leak Site</h1>
+            <p class="hero-subtitle">Ransomware gangs don't break in—they buy their way in through private sales no dark web monitoring tool can detect. We disrupt the deal before it becomes your breach.</p>
+            <a href="#" class="btn-primary">Book a Call</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>Proactive Defense in Action: Q1 Results</h2>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">72</span>
+              <span class="stat-label">Ransomware Attack Interceptions</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">$50MM</span>
+              <span class="stat-label">Losses Prevented*</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">690,000+</span>
+              <span class="stat-label">Organizations Protected</span>
+            </div>
+          </div>
+          <p class="stat-footnote">*Based on cyber insurance claims study</p>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="how-it-works">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>How It Works</h2>
+            <p>From Detection to Disruption in 7 Steps</p>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <span class="step-number">1</span>
+              <div class="step-content">
+                <h3>Upload Your Domains and Vendor Domains</h3>
+                <p>You share your key domains, IP ranges, and critical vendor domains. We take it from there.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">2</span>
+              <div class="step-content">
+                <h3>We Engage</h3>
+                <p>We actively engage hundreds of access brokers and criminal insiders in private to identify real-time compromises and insider sales—before attackers act on them.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">3</span>
+              <div class="step-content">
+                <h3>We Detect</h3>
+                <p>We detect credible compromises tied to your domains or vendor domains, flagged through exclusive visibility from our undercover communications.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">4</span>
+              <div class="step-content">
+                <h3>We Investigate</h3>
+                <p>Our team verifies each threat actor's claim using OSINT, technical indicators, underground reputation, and past victim feedback to confirm validity and assess risk.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">5</span>
+              <div class="step-content">
+                <h3>We Intercept</h3>
+                <p>We engage threat actors directly to intercept access sales and insider deals—cutting off attacks before they escalate to data theft or encryption.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">6</span>
+              <div class="step-content">
+                <h3>We Alert</h3>
+                <p>Attack intercepted. Now's your window to remediate and lock out future threats.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <span class="step-number">7</span>
+              <div class="step-content">
+                <h3>We Investigate Further</h3>
+                <p>Post-incident, we assist with deeper investigation—tracing root cause, mapping vendor risk, and supporting law enforcement engagement when needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solutions -->
+      <section class="solutions-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>Solutions</h2>
+            <p>Choose How You Stay Left of Boom</p>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card">
+              <div class="solution-icon">&#x1F3AF;</div>
+              <h3>Pre-Ransomware Interceptions</h3>
+              <p>Detect and Intercept ransomware attacks before encryption or data theft. Stay off tomorrow's leak site.</p>
+            </div>
+            <div class="solution-card">
+              <div class="solution-icon">&#x1F50D;</div>
+              <h3>Infostealer IQ</h3>
+              <p>One in four access brokers gain initial access through infostealer malware. We detect infections prioritized by brokers, sourced from key suppliers others can't reach.</p>
+            </div>
+            <div class="solution-card">
+              <div class="solution-icon">&#x1F517;</div>
+              <h3>Supply Chain Security+</h3>
+              <p>Early visibility into in-progress attacks against critical vendors and suppliers gives you time to act—before breach notices or leak site posts make the fallout your problem.</p>
+            </div>
+            <div class="solution-card">
+              <div class="solution-icon">&#x1F4BC;</div>
+              <h3>Portfolio Solutions</h3>
+              <p>Purpose-built for insurers, MSSPs, and private equity firms managing large portfolios. Aggregate protection across clients with flexible packages.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="comparison-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>Built for What EDR/MFA Miss</h2>
+            <p>Filling the Gaps No Other Security Solution Can</p>
+          </div>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>DWIQ</th>
+                <th>EDR</th>
+                <th>MFA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Intercepts Active Attacks & Prevents Data Theft</td>
+                <td class="check">&#10003;</td>
+                <td class="cross">&#10007;</td>
+                <td class="cross">&#10007;</td>
+              </tr>
+              <tr>
+                <td>Stops Attacks After Initial Access</td>
+                <td class="check">&#10003;</td>
+                <td class="cross">&#10007;</td>
+                <td class="cross">&#10007;</td>
+              </tr>
+              <tr>
+                <td>Intercepts Access Broker Sales</td>
+                <td class="check">&#10003;</td>
+                <td class="cross">&#10007;</td>
+                <td class="cross">&#10007;</td>
+              </tr>
+              <tr>
+                <td>Detects Supply Chain Compromises</td>
+                <td class="check">&#10003;</td>
+                <td class="cross">&#10007;</td>
+                <td class="cross">&#10007;</td>
+              </tr>
+              <tr>
+                <td>Deploys Instantly—No Integration Needed</td>
+                <td class="check">&#10003;</td>
+                <td class="cross">&#10007;</td>
+                <td class="cross">&#10007;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>The Trusted Partner for CISOs, Cyber Insurers, and Law Enforcement</h2>
+            <p>Real-World Results. Real-World Trust.</p>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Partnering with Darkweb IQ gives organizations early visibility into ransomware threats—enabling them to detect and stop attacks before they escalate and prevent devastating impacts."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">RT</div>
+                <div class="author-info">
+                  <h4>Ryan Truskey</h4>
+                  <p>SLED Chief Information Security Officer</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Darkweb IQ is the Ferrari of Intel Firms."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TI</div>
+                <div class="author-info">
+                  <h4>UK Threat Intel Lead</h4>
+                  <p>Top 10 Global Bank</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Darkweb IQ's new offensive approach to security is a game changer. They protect you from inside the criminal underground."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">MH</div>
+                <div class="author-info">
+                  <h4>Moriah Hara</h4>
+                  <p>3X Fortune 500 CISO</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"We sleep better at night knowing Darkweb IQ is out there looking out for us."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">JG</div>
+                <div class="author-info">
+                  <h4>Jeff Greer</h4>
+                  <p>Manager of IT, Star Pipe Products</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Darkweb IQ is Incident Response before the Incident."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">BG</div>
+                <div class="author-info">
+                  <h4>Billy Gouveia</h4>
+                  <p>CEO Surefire Cyber</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"We receive a lot of infostealer noise from vendors, but this was awesome."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TI</div>
+                <div class="author-info">
+                  <h4>Head of Threat Intel</h4>
+                  <p>Top 5 Insurance Broker</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="section-inner">
+          <h2>Ready to Stay Off Tomorrow's Leak Site?</h2>
+          <p>See how we stop attacks after compromise—before data theft, encryption, or headlines.</p>
+          <a href="#" class="btn-secondary">Book a Call</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Constants
+    const STORAGE_KEY = 'dwiq-preview-theme';
+    const DEFAULT_THEME = 'swiss-intelligence';
+
+    // Theme switching
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(STORAGE_KEY, theme);
+      document.querySelectorAll('input[name="theme"]').forEach(input => {
+        input.checked = input.value === theme;
+      });
+    }
+
+    // Mobile sidebar toggle
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.theme-sidebar');
+      const backdrop = document.querySelector('.sidebar-backdrop');
+      const isOpen = sidebar.classList.contains('open');
+
+      sidebar.classList.toggle('open');
+      backdrop.classList.toggle('visible');
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    }
+
+    // Initialize
+    const savedTheme = localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME;
+    setTheme(savedTheme);
+
+    // Event listeners for theme switching
+    document.querySelectorAll('input[name="theme"]').forEach(input => {
+      input.addEventListener('change', () => {
+        setTheme(input.value);
+        // Close sidebar on mobile after selection
+        if (window.innerWidth <= 768) {
+          toggleSidebar();
+        }
+      });
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const sidebar = document.querySelector('.theme-sidebar');
+        if (sidebar.classList.contains('open')) {
+          toggleSidebar();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
