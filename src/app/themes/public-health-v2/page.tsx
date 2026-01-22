@@ -1,0 +1,300 @@
+import Link from 'next/link';
+import { publicHealthContent as content } from '@/lib/content/public-health';
+
+export default function PublicHealthV2() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900 font-['system-ui','-apple-system','Segoe_UI',Roboto,sans-serif]">
+      {/* Alert Banner */}
+      <div className="bg-amber-500 text-amber-950 py-2 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span>Active Threat Level: <strong>ELEVATED</strong> — Ransomware activity detected in your sector</span>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="bg-[#1a5f4a] text-white sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-white/80 hover:text-white transition-colors text-sm">
+            ← All Themes
+          </Link>
+          <div className="flex items-center gap-6">
+            <span className="text-xs tracking-wider uppercase text-white/60">Threat Dashboard V2</span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-b from-[#1a5f4a]/5 to-transparent">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium mb-6">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"/>
+                Critical Advisory
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
+                {content.hero.headline}
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                {content.hero.subheadline}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-[#1a5f4a] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#154d3c] transition-colors">
+                  {content.hero.cta}
+                </button>
+                <button className="border-2 border-[#1a5f4a] text-[#1a5f4a] px-8 py-4 rounded-lg font-semibold hover:bg-[#1a5f4a]/5 transition-colors">
+                  View Guidelines
+                </button>
+              </div>
+            </div>
+
+            {/* Threat Map Visualization */}
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-semibold text-gray-700">Active Threat Distribution</h3>
+                <span className="text-xs bg-gray-200 px-3 py-1 rounded-full">Live Data</span>
+              </div>
+              <div className="aspect-video bg-white rounded-lg border border-gray-200 flex items-center justify-center relative overflow-hidden">
+                <svg viewBox="0 0 400 250" className="w-full h-full">
+                  <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f0f0f0" strokeWidth="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="400" height="250" fill="url(#grid)"/>
+                  <circle cx="100" cy="80" r="40" fill="#ef4444" fillOpacity="0.3"/>
+                  <circle cx="100" cy="80" r="20" fill="#ef4444" fillOpacity="0.5"/>
+                  <circle cx="250" cy="120" r="50" fill="#f59e0b" fillOpacity="0.3"/>
+                  <circle cx="250" cy="120" r="25" fill="#f59e0b" fillOpacity="0.5"/>
+                  <circle cx="320" cy="180" r="30" fill="#ef4444" fillOpacity="0.3"/>
+                  <circle cx="320" cy="180" r="15" fill="#ef4444" fillOpacity="0.5"/>
+                  <circle cx="180" cy="200" r="35" fill="#22c55e" fillOpacity="0.3"/>
+                  <circle cx="180" cy="200" r="17" fill="#22c55e" fillOpacity="0.5"/>
+                </svg>
+                <div className="absolute bottom-4 left-4 flex items-center gap-4 text-xs">
+                  <div className="flex items-center gap-1">
+                    <span className="w-3 h-3 bg-red-500 rounded-full"/>
+                    <span>High</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="w-3 h-3 bg-amber-500 rounded-full"/>
+                    <span>Medium</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="w-3 h-3 bg-green-500 rounded-full"/>
+                    <span>Protected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">{content.statsHeadline}</h2>
+              <p className="text-gray-500 text-sm mt-1">Real-time protection metrics</p>
+            </div>
+            <div className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">
+              Last updated: 2 min ago
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {content.stats.map((stat, i) => (
+              <div key={i} className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                    i === 0 ? 'bg-red-100 text-red-600' :
+                    i === 1 ? 'bg-green-100 text-green-600' :
+                    'bg-blue-100 text-blue-600'
+                  }`}>
+                    {i === 0 ? (
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                    ) : i === 1 ? (
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    )}
+                  </div>
+                  <span className="text-xs text-green-600 font-medium">↑ +12%</span>
+                </div>
+                <div className="text-4xl font-bold text-gray-900 mb-1">{stat.number}</div>
+                <div className="text-sm text-gray-500">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-gray-400 mt-6">{content.statsFootnote}</p>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Response Protocol</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.howItWorks.headline}</h2>
+            <p className="text-gray-500 mt-3 max-w-2xl mx-auto">{content.howItWorks.subheadline}</p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {content.howItWorks.steps.map((step, i) => (
+              <div key={i} className="flex gap-6 mb-8">
+                <div className="flex flex-col items-center">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${
+                    i < 2 ? 'bg-red-500' : i < 4 ? 'bg-amber-500' : 'bg-green-500'
+                  }`}>
+                    {i + 1}
+                  </div>
+                  {i < content.howItWorks.steps.length - 1 && (
+                    <div className="flex-1 w-0.5 bg-gray-200 mt-2"/>
+                  )}
+                </div>
+                <div className="flex-1 pb-8">
+                  <div className={`px-3 py-1 rounded text-xs font-medium inline-block mb-2 ${
+                    i < 2 ? 'bg-red-100 text-red-700' : i < 4 ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'
+                  }`}>
+                    {i < 2 ? 'Detection Phase' : i < 4 ? 'Containment Phase' : 'Resolution Phase'}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions */}
+      <section className="py-16 bg-[#1a5f4a]/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Solutions</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.solutions.headline}</h2>
+            <p className="text-gray-500 mt-3">{content.solutions.subheadline}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {content.solutions.items.map((item, i) => (
+              <div key={i} className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                    i === 0 ? 'bg-red-100' :
+                    i === 1 ? 'bg-amber-100' :
+                    i === 2 ? 'bg-blue-100' :
+                    'bg-[#1a5f4a]/10'
+                  }`}>
+                    <svg className={`w-7 h-7 ${
+                      i === 0 ? 'text-red-600' :
+                      i === 1 ? 'text-amber-600' :
+                      i === 2 ? 'text-blue-600' :
+                      'text-[#1a5f4a]'
+                    }`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Coverage Assessment</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.comparison.headline}</h2>
+            <p className="text-gray-500 mt-3">{content.comparison.subheadline}</p>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            {content.comparison.capabilities.map((cap, i) => (
+              <div key={i} className={`flex items-center gap-4 px-6 py-5 ${i !== content.comparison.capabilities.length - 1 ? 'border-b border-gray-100' : ''} hover:bg-gray-50 transition-colors`}>
+                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-gray-700 font-medium">{cap}</span>
+                <span className="ml-auto text-xs text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full">Protected</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Success Stories</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">Recovery Reports</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {content.testimonials.slice(0, 6).map((testimonial, i) => (
+              <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
+                <div className="border-t border-gray-100 pt-4">
+                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                  <div className="text-sm text-[#1a5f4a]">{testimonial.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-[#1a5f4a]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Early Detection Saves Organizations
+          </div>
+          <h2 className="text-4xl font-bold text-white mb-6">{content.cta.headline}</h2>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">{content.cta.subheadline}</p>
+          <button className="bg-white text-[#1a5f4a] px-10 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+            {content.cta.button}
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
+          <p className="text-gray-400">DarkWebIQ — Public Health V2 Theme Preview</p>
+          <p className="text-gray-400">Cyber Defense Agency</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
