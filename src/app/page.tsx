@@ -2,17 +2,15 @@ import Link from 'next/link';
 import { themes } from '@/lib/content';
 
 const v2Themes = [
-  { id: "digital-topography-v2", name: "Digital Topography V2", description: "New copy: 'See Attacks Before They Happen'" },
-  { id: "swiss-intelligence-v2", name: "Swiss Intelligence V2", description: "New copy: 'The Intelligence Advantage'" },
-  { id: "forensic-cleanroom-v2", name: "Forensic Cleanroom V2", description: "New copy: 'Pre-Breach Protection'" },
-  { id: "public-health-v2", name: "Public Health V2", description: "New copy: 'Threat Immunity System'" },
-  { id: "art-deco-v2", name: "Art Deco Detective V2", description: "New copy: 'The Case Closed Before It Opens'" },
-  { id: "bioluminescent-deep-v2", name: "Bioluminescent Deep V2", description: "New copy: 'Navigate the Depths'" },
-  { id: "intelligence-dossier-v2", name: "Intelligence Dossier V2", description: "New copy: 'Classified Intelligence'" },
-  { id: "nature-documentary-v2", name: "Nature Documentary V2", description: "New copy: 'Predator Early Warning'" },
-  { id: "mission-control-v2", name: "Mission Control V2", description: "New copy: 'Mission: Threat Prevention'" },
-  { id: "bright-confidence-v2", name: "Bright Confidence V2", description: "New copy: 'Security Made Simple'" },
-  { id: "luxury-concierge-v2", name: "Luxury Concierge V2", description: "New copy: 'White-Glove Protection'" },
+  { id: "digital-topography-v2", name: "Digital Topography V2", description: "CISO pain point copy" },
+  { id: "swiss-intelligence-v2", name: "Swiss Intelligence V2", description: "CISO pain point copy" },
+  { id: "forensic-cleanroom-v2", name: "Forensic Cleanroom V2", description: "CISO pain point copy" },
+  { id: "public-health-v2", name: "Public Health V2", description: "CISO pain point copy" },
+  { id: "intelligence-dossier-v2", name: "Intelligence Dossier V2", description: "CISO pain point copy" },
+  { id: "nature-documentary-v2", name: "Nature Documentary V2", description: "CISO pain point copy" },
+  { id: "mission-control-v2", name: "Mission Control V2", description: "CISO pain point copy" },
+  { id: "bright-confidence-v2", name: "Bright Confidence V2", description: "CISO pain point copy" },
+  { id: "luxury-concierge-v2", name: "Luxury Concierge V2", description: "CISO pain point copy" },
 ];
 
 export default function Home() {
@@ -21,7 +19,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-6 py-20">
         <header className="mb-16">
           <h1 className="text-5xl font-bold mb-4">DarkWebIQ Design Themes</h1>
-          <p className="text-xl text-zinc-400">11 distinct design directions, each with original and refreshed copy versions.</p>
+          <p className="text-xl text-zinc-400">9 distinct design directions, each with original and CISO pain point copy versions.</p>
         </header>
 
         {/* Original Themes */}

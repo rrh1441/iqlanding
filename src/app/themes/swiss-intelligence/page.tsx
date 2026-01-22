@@ -4,16 +4,6 @@ import { content } from '@/lib/content';
 export default function SwissIntelligence() {
   return (
     <div className="min-h-screen bg-white text-black font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
-      {/* Grid Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(to right, #f0f0f0 1px, transparent 1px),
-            linear-gradient(to bottom, #f0f0f0 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
-        }}/>
-      </div>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black">
@@ -25,33 +15,22 @@ export default function SwissIntelligence() {
         </div>
       </nav>
 
-      {/* Hero Section - Massive Typography */}
-      <section className="min-h-screen flex items-center pt-20 relative">
-        <div className="max-w-7xl mx-auto px-6 w-full">
-          <div className="grid lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8">
-              <p className="text-[#ff4400] text-sm font-bold tracking-[0.3em] uppercase mb-6">
-                Intelligence Brief
-              </p>
-              <h1 className="text-6xl sm:text-7xl lg:text-[120px] font-bold leading-[0.85] tracking-tight mb-8">
-                {content.hero.headline.split(' ').map((word, i) => (
-                  <span key={i} className="block">{word}</span>
-                ))}
-              </h1>
-            </div>
-            <div className="lg:col-span-4 lg:flex lg:flex-col lg:justify-end">
-              <p className="text-lg leading-relaxed text-gray-700 mb-8">
-                {content.hero.subheadline}
-              </p>
-              <button className="w-full bg-black text-white py-4 px-8 font-bold text-sm tracking-[0.2em] uppercase hover:bg-[#ff4400] transition-colors">
-                {content.hero.cta}
-              </button>
-            </div>
-          </div>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-[#ff4400] text-sm font-bold tracking-[0.3em] uppercase mb-6">
+            Threat Intelligence
+          </p>
+          <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight mb-8 max-w-4xl">
+            {content.hero.headline}
+          </h1>
+          <p className="text-xl leading-relaxed text-gray-700 mb-10 max-w-2xl">
+            {content.hero.subheadline}
+          </p>
+          <button className="bg-black text-white py-4 px-10 font-bold text-sm tracking-[0.2em] uppercase hover:bg-[#ff4400] transition-colors">
+            {content.hero.cta}
+          </button>
         </div>
-
-        {/* Corner accent */}
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#ff4400]"/>
       </section>
 
       {/* Stats - Bento Grid */}

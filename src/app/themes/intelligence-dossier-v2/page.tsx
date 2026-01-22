@@ -19,25 +19,10 @@ export default function IntelligenceDossierV2() {
         </div>
       </nav>
 
-      {/* Classification Header */}
-      <div className="bg-[#1a1a2e] text-[#f8f6f1] py-2">
-        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center text-xs font-sans tracking-wider">
-          <span>CLASSIFICATION: <span className="text-[#c41e3a]">TOP SECRET</span> // NOFORN</span>
-          <span>DOC ID: DWIQ-2024-001</span>
-        </div>
-      </div>
-
-      {/* Hero Section - Dossier Cover */}
+      {/* Hero Section */}
       <section className="py-20 relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-4 border-[#1a1a2e] p-12 lg:p-20 relative bg-[#f8f6f1]">
-            {/* Stamp marks */}
-            <div className="absolute top-8 right-8 transform rotate-12">
-              <div className="border-4 border-[#c41e3a] text-[#c41e3a] px-6 py-2 font-bold text-xl tracking-wider font-sans uppercase">
-                CLASSIFIED
-              </div>
-            </div>
-
             <div className="max-w-3xl">
               <div className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase mb-6 border-b border-[#1a1a2e] pb-4 inline-block">
                 Executive Summary
@@ -61,11 +46,11 @@ export default function IntelligenceDossierV2() {
         </div>
       </section>
 
-      {/* Stats - Evidence File */}
+      {/* Stats */}
       <section className="py-20 bg-[#1a1a2e] text-[#f8f6f1]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
-            <span className="text-[#d4af37] text-sm font-sans tracking-[0.3em] uppercase">Exhibit A</span>
+            <span className="text-[#d4af37] text-sm font-sans tracking-[0.3em] uppercase">By the Numbers</span>
             <div className="flex-1 h-px bg-[#d4af37]/30"/>
           </div>
 
@@ -74,9 +59,6 @@ export default function IntelligenceDossierV2() {
           <div className="grid md:grid-cols-3 gap-1 bg-[#f8f6f1]/10">
             {content.stats.map((stat, i) => (
               <div key={i} className="bg-[#1a1a2e] p-10 border border-[#f8f6f1]/10">
-                <div className="text-xs font-sans text-[#d4af37] tracking-widest mb-4">
-                  FIGURE {i + 1}.{i + 1}
-                </div>
                 <div className="text-5xl font-light text-[#d4af37] mb-2">{stat.number}</div>
                 <div className="text-sm text-[#f8f6f1]/60 font-sans">{stat.label}</div>
               </div>
@@ -86,11 +68,11 @@ export default function IntelligenceDossierV2() {
         </div>
       </section>
 
-      {/* How It Works - Briefing Document */}
+      {/* How It Works */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">Section II</span>
+            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">The Process</span>
             <div className="flex-1 h-px bg-[#1a1a2e]/20"/>
           </div>
 
@@ -107,20 +89,17 @@ export default function IntelligenceDossierV2() {
                   <h3 className="text-xl mb-3 font-semibold">{step.title}</h3>
                   <p className="text-[#666] leading-relaxed">{step.description}</p>
                 </div>
-                <div className="hidden lg:block w-32 text-right">
-                  <span className="text-xs font-sans text-[#999] tracking-wider">REF: {i + 1}.{i + 1}.{i + 1}</span>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions - Case Files */}
+      {/* Solutions */}
       <section className="py-20 bg-[#eae6db]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">Section III</span>
+            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">Services</span>
             <div className="flex-1 h-px bg-[#1a1a2e]/20"/>
           </div>
 
@@ -130,30 +109,23 @@ export default function IntelligenceDossierV2() {
           <div className="grid md:grid-cols-2 gap-6">
             {content.solutions.items.map((item, i) => (
               <div key={i} className="bg-[#f8f6f1] border-2 border-[#1a1a2e] p-8 relative group hover:border-[#c41e3a] transition-colors">
-                {/* Tab */}
                 <div className="absolute -top-4 left-6 bg-[#1a1a2e] text-[#f8f6f1] px-4 py-1 text-xs font-sans tracking-wider group-hover:bg-[#c41e3a] transition-colors">
-                  CASE FILE {String(i + 1).padStart(3, '0')}
+                  {String(i + 1).padStart(2, '0')}
                 </div>
 
                 <h3 className="text-2xl mb-4 mt-2">{item.title}</h3>
                 <p className="text-[#666] leading-relaxed">{item.description}</p>
-
-                {/* Redacted text decoration */}
-                <div className="mt-6 space-y-2">
-                  <div className="h-3 w-3/4 bg-[#1a1a2e]/10"/>
-                  <div className="h-3 w-1/2 bg-[#1a1a2e]/10"/>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Comparison - Assessment Table */}
+      {/* Comparison */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">Section IV</span>
+            <span className="text-[#c41e3a] text-sm font-sans tracking-[0.3em] uppercase">Capabilities</span>
             <div className="flex-1 h-px bg-[#1a1a2e]/20"/>
           </div>
 
@@ -161,9 +133,6 @@ export default function IntelligenceDossierV2() {
           <p className="text-lg text-[#666] mb-12">{content.comparison.subheadline}</p>
 
           <div className="border-2 border-[#1a1a2e]">
-            <div className="bg-[#1a1a2e] text-[#f8f6f1] px-6 py-3 text-sm font-sans tracking-wider uppercase">
-              Capability Assessment
-            </div>
             {content.comparison.capabilities.map((cap, i) => (
               <div key={i} className={`flex items-center gap-4 px-6 py-5 ${i !== content.comparison.capabilities.length - 1 ? 'border-b border-[#1a1a2e]/20' : ''} hover:bg-[#eae6db] transition-colors`}>
                 <div className="w-6 h-6 border-2 border-[#c41e3a] flex items-center justify-center flex-shrink-0">
@@ -178,21 +147,17 @@ export default function IntelligenceDossierV2() {
         </div>
       </section>
 
-      {/* Testimonials - Source Reports */}
+      {/* Testimonials */}
       <section className="py-20 bg-[#1a1a2e] text-[#f8f6f1]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
-            <span className="text-[#d4af37] text-sm font-sans tracking-[0.3em] uppercase">Source Reports</span>
+            <span className="text-[#d4af37] text-sm font-sans tracking-[0.3em] uppercase">Testimonials</span>
             <div className="flex-1 h-px bg-[#d4af37]/30"/>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {content.testimonials.slice(0, 4).map((testimonial, i) => (
               <div key={i} className="border border-[#f8f6f1]/20 p-8 relative">
-                <div className="absolute top-0 left-8 -translate-y-1/2 bg-[#1a1a2e] px-4 text-xs font-sans text-[#d4af37] tracking-wider">
-                  SOURCE {String(i + 1).padStart(2, '0')}
-                </div>
-
                 <blockquote className="text-xl leading-relaxed italic mb-6 text-[#f8f6f1]/90">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
@@ -209,14 +174,10 @@ export default function IntelligenceDossierV2() {
         </div>
       </section>
 
-      {/* CTA - Final Briefing */}
+      {/* CTA */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="border-4 border-[#c41e3a] p-12 lg:p-16 text-center relative bg-[#f8f6f1]">
-            {/* Corner stamps */}
-            <div className="absolute top-4 left-4 text-[#c41e3a] opacity-30 text-6xl font-bold">※</div>
-            <div className="absolute bottom-4 right-4 text-[#c41e3a] opacity-30 text-6xl font-bold">※</div>
-
             <h2 className="text-4xl lg:text-5xl mb-6">{content.cta.headline}</h2>
             <p className="text-xl text-[#666] mb-10 max-w-2xl mx-auto">{content.cta.subheadline}</p>
 
@@ -229,9 +190,8 @@ export default function IntelligenceDossierV2() {
 
       {/* Footer */}
       <footer className="py-8 border-t-2 border-[#1a1a2e]">
-        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center text-sm font-sans text-[#666]">
+        <div className="max-w-6xl mx-auto px-6 text-center text-sm font-sans text-[#666]">
           <p>DarkWebIQ — Intelligence Dossier V2 Theme Preview</p>
-          <p>UNCLASSIFIED UPON RELEASE</p>
         </div>
       </footer>
     </div>
