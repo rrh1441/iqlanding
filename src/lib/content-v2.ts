@@ -15,37 +15,34 @@ export const contentV2 = {
   statsHeadline: "Q1 Intelligence Report",
   statsFootnote: "*Verified through insurance claims analysis",
   howItWorks: {
-    headline: "The Process",
-    subheadline: "7 Steps: Threat Detected to Threat Stopped",
+    headline: "What You Get",
+    subheadline: "Board-Reportable Results",
     steps: [
-      { title: "Define Your Perimeter", description: "Share your domains. We begin monitoring immediately." },
-      { title: "Access Criminal Networks", description: "We maintain presence where access brokers trade company credentials." },
-      { title: "Identify Threats", description: "A credible threat targeting your organization has been detected." },
-      { title: "Validate Authenticity", description: "Multi-source verification eliminates noise. Only real threats reach you." },
-      { title: "Neutralize the Sale", description: "We intervene. The transaction is stopped. Your exposure ends." },
-      { title: "Deliver Actionable Intel", description: "You receive specific remediation steps with clear priorities." },
-      { title: "Provide Full Documentation", description: "Complete evidence package for your team and stakeholders." }
+      { title: "Attacks Prevented", description: "Threats intercepted before reaching your network. Measurable risk reduction you can report." },
+      { title: "23-Day Average Warning", description: "Mean time to awareness before attack execution. Act while attackers are still planning." },
+      { title: "Zero False Positives", description: "Every alert is actionable. No alert fatigue. No wasted cycles chasing noise." },
+      { title: "Documented Evidence", description: "Board-ready reports proving security ROI. Justify your investment with concrete results." }
     ]
   },
   solutions: {
-    headline: "Coverage Options",
-    subheadline: "Precision Protection",
+    headline: "Business Impact",
+    subheadline: "What This Means For You",
     items: [
-      { title: "Pre-Ransomware Defense", description: "Intercept ransomware operators before encryption begins." },
-      { title: "Credential Monitoring", description: "One in four breaches starts with stolen credentials. We prioritize the high-risk ones." },
-      { title: "Vendor Risk Intelligence", description: "Early warning when partners face compromise. Act before the cascade." },
-      { title: "Portfolio Coverage", description: "Multi-organization protection for insurers, MSSPs, and investment firms." }
+      { title: "Avoid $4.5M Average Ransomware Cost", description: "We intercept operators before encryption. Prevention, not recovery." },
+      { title: "Eliminate Your #1 Breach Vector", description: "25% of breaches start with stolen credentials. We catch the dangerous ones before they're used." },
+      { title: "Protect Against Supply Chain Attacks", description: "Early warning when your vendors are compromised. Act before the cascade reaches you." },
+      { title: "Reduce Portfolio-Wide Risk", description: "For insurers, MSSPs, and PE firms managing multiple organizations. One platform, complete visibility." }
     ]
   },
   comparison: {
-    headline: "Beyond Standard Tools",
-    subheadline: "Where EDR and MFA Fall Short",
+    headline: "Why Traditional Tools Miss This",
+    subheadline: "The Gap Between Detection and Prevention",
     capabilities: [
-      "Prevents attacks before data exfiltration",
-      "Detects threats after initial access is gained",
-      "Operates inside access broker networks",
-      "Provides advance notice of supply chain compromise",
-      "Deploys instantly—no infrastructure changes"
+      "EDR detects the attack. We prevent the attack.",
+      "MFA stops credential reuse. We stop credential sales before reuse happens.",
+      "SIEM alerts after the breach. We alert before the breach.",
+      "Threat feeds show known IOCs. We show threats targeting you specifically.",
+      "Pen tests find vulnerabilities. We find criminals already exploiting them."
     ]
   },
   testimonials: [
@@ -57,8 +54,8 @@ export const contentV2 = {
     { quote: "We receive a lot of infostealer noise from vendors, but this was awesome.", author: "Head of Threat Intel", role: "Top 5 Insurance Broker" }
   ],
   cta: {
-    headline: "Ready for Intelligence That Matters?",
-    subheadline: "Get a threat assessment tailored to your organization.",
-    button: "Request My Assessment"
+    headline: "See What Threats Target Your Organization",
+    subheadline: "Get your threat assessment. Know what criminals see when they look at you.",
+    button: "Get My Threat Assessment"
   }
 };
