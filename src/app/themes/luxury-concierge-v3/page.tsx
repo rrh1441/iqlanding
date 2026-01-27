@@ -2,22 +2,31 @@ import Link from 'next/link';
 import { contentV3 as content } from '@/lib/content-v3';
 
 export default function LuxuryConciergeV3() {
+  const featuredTestimonial = content.testimonials.find(t => t.featured);
+  const nonFeaturedTestimonials = content.testimonials.filter(t => !t.featured);
+
   return (
     <div className="min-h-screen bg-[#f8f5f0] text-[#2d2d2d] font-['Cormorant_Garamond',Georgia,serif]">
-      {/* Navigation */}
-      <nav className="bg-[#2d2d2d] text-[#f8f5f0]">
-        <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-          <Link href="/" className="text-[#c9a962] hover:text-[#f8f5f0] transition-colors text-sm tracking-widest uppercase font-sans font-medium">
-            ← All Themes
-          </Link>
+      {/* 1. Navigation with brand + CTA */}
+      <nav className="bg-[#2d2d2d] text-[#f8f5f0] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <Link href="/" className="text-[#c9a962] hover:text-[#f8f5f0] transition-colors text-sm tracking-widest uppercase font-sans font-medium">
+              ← Themes
+            </Link>
+            <div className="w-px h-6 bg-[#c9a962]/30 hidden md:block"/>
+            <span className="text-sm tracking-[0.3em] uppercase font-sans text-[#f8f5f0] hidden md:block">DarkWebIQ</span>
+          </div>
           <div className="flex items-center gap-4">
-            <div className="w-px h-6 bg-[#c9a962]/30"/>
-            <span className="text-sm tracking-[0.3em] uppercase font-sans text-[#c9a962]">Luxury Concierge V3</span>
+            <span className="text-[#c9a962] text-xs tracking-[0.2em] uppercase font-sans hidden lg:block">Luxury Concierge V3</span>
+            <button className="bg-[#c9a962] text-[#2d2d2d] px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-sans font-semibold hover:bg-[#b8944f] transition-colors">
+              {content.hero.cta}
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Premium & Elegant */}
+      {/* 2. Hero with preheadline, headline, subheadline, dual CTAs */}
       <section className="py-24 lg:py-32 relative">
         {/* Subtle marble texture suggestion */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -36,7 +45,7 @@ export default function LuxuryConciergeV3() {
             </div>
 
             <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans mb-6">
-              White-Glove Cyber Protection
+              {content.hero.preheadline}
             </p>
             <h1 className="text-5xl lg:text-7xl font-light leading-tight mb-8 tracking-wide">
               {content.hero.headline}
@@ -44,15 +53,128 @@ export default function LuxuryConciergeV3() {
             <p className="text-xl text-[#666] leading-relaxed mb-12 max-w-2xl mx-auto font-light">
               {content.hero.subheadline}
             </p>
-            <button className="group relative px-12 py-5 bg-[#1a472a] text-[#f8f5f0] tracking-[0.2em] uppercase text-sm font-sans font-medium hover:bg-[#143d23] transition-colors">
-              {content.hero.cta}
-              <span className="absolute inset-0 border border-[#c9a962] transform translate-x-1 translate-y-1 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"/>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="group relative px-12 py-5 bg-[#2d2d2d] text-[#f8f5f0] tracking-[0.2em] uppercase text-sm font-sans font-medium hover:bg-[#1a1a1a] transition-colors">
+                {content.hero.cta}
+                <span className="absolute inset-0 border border-[#c9a962] transform translate-x-1 translate-y-1 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"/>
+              </button>
+              <button className="px-12 py-5 border border-[#2d2d2d] text-[#2d2d2d] tracking-[0.2em] uppercase text-sm font-sans font-medium hover:bg-[#2d2d2d] hover:text-[#f8f5f0] transition-colors">
+                {content.hero.secondaryCta}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Urgency Banner */}
+      <section className="bg-[#c9a962] py-4">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-center">
+            <span className="text-[#2d2d2d] font-semibold tracking-wide">{content.urgency.headline}:</span>
+            <span className="text-[#2d2d2d]/80 font-light">{content.urgency.text}</span>
+            <span className="text-[#2d2d2d]/60 text-sm font-sans">{content.urgency.updateDate}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Social Proof Bar */}
+      <section className="py-12 bg-[#2d2d2d] text-[#f8f5f0]">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center">
+            <p className="text-[#c9a962] text-sm tracking-[0.3em] uppercase font-sans mb-6">{content.socialProof.headline}</p>
+            <div className="flex flex-wrap justify-center gap-8 items-center mb-4">
+              {content.socialProof.logos.map((logo, i) => (
+                <span key={i} className="text-[#f8f5f0]/60 font-sans text-sm tracking-wider">{logo}</span>
+              ))}
+            </div>
+            <p className="text-[#c9a962] font-light text-lg">{content.socialProof.metric}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Featured Testimonial */}
+      {featuredTestimonial && (
+        <section className="py-20 relative">
+          <div className="max-w-4xl mx-auto px-8">
+            <div className="relative text-center">
+              {/* Decorative quote */}
+              <div className="text-[#c9a962] text-9xl font-serif opacity-20 absolute -top-10 left-1/2 transform -translate-x-1/2">&ldquo;</div>
+
+              <div className="relative z-10 border border-[#c9a962]/30 p-12 md:p-16">
+                <p className="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+                  &ldquo;{featuredTestimonial.quote}&rdquo;
+                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-px bg-[#c9a962]"/>
+                  <div className="text-center">
+                    <div className="font-semibold text-[#2d2d2d] text-lg">{featuredTestimonial.author}</div>
+                    <div className="text-sm text-[#c9a962] font-sans tracking-wider uppercase">{featuredTestimonial.role}</div>
+                  </div>
+                  <div className="w-12 h-px bg-[#c9a962]"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 6. Who This Is For Section */}
+      <section className="py-24 bg-[#2d2d2d] text-[#f8f5f0]">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">Designed For Excellence</p>
+            <h2 className="text-4xl font-light mt-4">{content.whoThisIsFor.headline}</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.whoThisIsFor.profiles.map((profile, i) => (
+              <div key={i} className="bg-[#f8f5f0] text-[#2d2d2d] p-8 relative group hover:translate-y-[-4px] transition-transform">
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#c9a962]"/>
+                <span className="text-[#c9a962] text-xs tracking-[0.3em] uppercase font-sans">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-xl font-light mt-4 mb-3">{profile.title}</h3>
+                <p className="text-[#666] font-light text-sm leading-relaxed">{profile.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Case Study with Timeline */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">Case Study</p>
+            <h2 className="text-4xl font-light mt-4">{content.caseStudy.headline}</h2>
+            <p className="text-[#666] mt-4 font-light">{content.caseStudy.company}</p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-[#c9a962]/30 transform md:-translate-x-1/2"/>
+
+            {content.caseStudy.timeline.map((item, i) => (
+              <div key={i} className={`relative flex flex-col md:flex-row gap-8 mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} pl-20 md:pl-0`}>
+                  <span className="text-[#c9a962] text-sm tracking-[0.3em] uppercase font-sans font-semibold">{item.day}</span>
+                  <p className="text-lg font-light mt-2 leading-relaxed">{item.event}</p>
+                </div>
+                {/* Timeline dot */}
+                <div className="absolute left-8 md:left-1/2 top-0 w-4 h-4 rounded-full bg-[#c9a962] border-4 border-[#f8f5f0] transform -translate-x-1/2"/>
+                <div className="flex-1 hidden md:block"/>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16 p-8 bg-[#2d2d2d] text-[#f8f5f0]">
+            <p className="text-xl font-light italic mb-6">{content.caseStudy.outcome}</p>
+            <button className="bg-[#c9a962] text-[#2d2d2d] px-10 py-4 tracking-[0.2em] uppercase text-sm font-sans font-semibold hover:bg-[#b8944f] transition-colors">
+              {content.caseStudy.cta}
             </button>
           </div>
         </div>
       </section>
 
-      {/* Stats Section - Refined */}
+      {/* 8. Stats Section */}
       <section className="py-20 bg-[#2d2d2d] text-[#f8f5f0]">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -72,7 +194,7 @@ export default function LuxuryConciergeV3() {
         </div>
       </section>
 
-      {/* How It Works - Elegant Steps */}
+      {/* 9. How It Works - 4 Steps */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-20">
@@ -81,20 +203,57 @@ export default function LuxuryConciergeV3() {
             <p className="text-[#666] mt-4 max-w-2xl mx-auto font-light">{content.howItWorks.subheadline}</p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {content.howItWorks.steps.map((step, i) => (
-              <div key={i} className="flex gap-12 mb-16 items-start">
-                <div className="flex-shrink-0 text-center">
-                  <div className="w-16 h-16 rounded-full border-2 border-[#c9a962] flex items-center justify-center">
-                    <span className="text-2xl font-light text-[#c9a962]">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  {i < content.howItWorks.steps.length - 1 && (
-                    <div className="w-px h-16 bg-[#c9a962]/30 mx-auto mt-4"/>
-                  )}
+              <div key={i} className="text-center relative">
+                <div className="w-20 h-20 rounded-full border-2 border-[#c9a962] flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl font-light text-[#c9a962]">{String(i + 1).padStart(2, '0')}</span>
                 </div>
-                <div className="flex-1 pt-3">
-                  <h3 className="text-2xl font-light mb-3">{step.title}</h3>
-                  <p className="text-[#666] leading-relaxed font-light">{step.description}</p>
+                {i < content.howItWorks.steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-px bg-[#c9a962]/30"/>
+                )}
+                <h3 className="text-xl font-light mb-3">{step.title}</h3>
+                <p className="text-[#666] leading-relaxed font-light text-sm">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Comparison Table (theirs vs ours) */}
+      <section className="py-24 bg-[#f8f5f0]">
+        <div className="max-w-5xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">Distinction</p>
+            <h2 className="text-4xl font-light mt-4">{content.comparison.headline}</h2>
+            <p className="text-[#666] mt-4 font-light">{content.comparison.subheadline}</p>
+          </div>
+
+          <div className="overflow-hidden border border-[#2d2d2d]/10">
+            {/* Header */}
+            <div className="grid grid-cols-2 bg-[#2d2d2d] text-[#f8f5f0]">
+              <div className="p-6 text-center border-r border-[#f8f5f0]/10">
+                <span className="text-sm tracking-[0.2em] uppercase font-sans text-[#f8f5f0]/60">Traditional Tools</span>
+              </div>
+              <div className="p-6 text-center">
+                <span className="text-sm tracking-[0.2em] uppercase font-sans text-[#c9a962]">DarkWebIQ</span>
+              </div>
+            </div>
+
+            {/* Rows */}
+            {content.comparison.capabilitiesEnhanced.map((cap, i) => (
+              <div key={i} className={`grid grid-cols-2 ${i !== content.comparison.capabilitiesEnhanced.length - 1 ? 'border-b border-[#2d2d2d]/10' : ''}`}>
+                <div className="p-6 border-r border-[#2d2d2d]/10 flex items-center gap-4">
+                  <svg className="w-5 h-5 text-[#999] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-[#666] font-light text-sm">{cap.theirs}</span>
+                </div>
+                <div className="p-6 flex items-center gap-4 bg-[#f8f5f0]">
+                  <svg className="w-5 h-5 text-[#c9a962] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="font-light text-sm">{cap.ours}</span>
                 </div>
               </div>
             ))}
@@ -102,8 +261,8 @@ export default function LuxuryConciergeV3() {
         </div>
       </section>
 
-      {/* Solutions - Premium Cards */}
-      <section className="py-24 bg-[#1a472a] text-[#f8f5f0]">
+      {/* 11. Solutions/Business Impact */}
+      <section className="py-24 bg-[#2d2d2d] text-[#f8f5f0]">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-20">
             <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">Bespoke Services</p>
@@ -122,16 +281,9 @@ export default function LuxuryConciergeV3() {
                 </div>
 
                 <div className="relative">
-                  <span className="text-[#c9a962] text-sm tracking-[0.3em] uppercase font-sans">Service {String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[#c9a962] text-sm tracking-[0.3em] uppercase font-sans">Impact {String(i + 1).padStart(2, '0')}</span>
                   <h3 className="text-2xl font-light mt-4 mb-4">{item.title}</h3>
                   <p className="text-[#666] leading-relaxed font-light">{item.description}</p>
-
-                  <button className="mt-8 text-[#1a472a] font-sans text-sm tracking-wider uppercase inline-flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Enquire
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             ))}
@@ -139,31 +291,85 @@ export default function LuxuryConciergeV3() {
         </div>
       </section>
 
-      {/* Comparison - Distinguished List */}
+      {/* 12. Free Assessment Offer (Risk Calculator) */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5f0] to-[#f0ebe3]"/>
+        <div className="max-w-4xl mx-auto px-8 relative">
+          <div className="text-center border-2 border-[#c9a962] p-12 md:p-16 relative">
+            {/* Corner ornaments */}
+            <svg className="absolute top-4 left-4 w-8 h-8 text-[#c9a962]" viewBox="0 0 32 32">
+              <path d="M0 8 L0 0 L8 0 M0 8 L8 8 L8 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+            <svg className="absolute top-4 right-4 w-8 h-8 text-[#c9a962]" viewBox="0 0 32 32">
+              <path d="M32 8 L32 0 L24 0 M32 8 L24 8 L24 0" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+            <svg className="absolute bottom-4 left-4 w-8 h-8 text-[#c9a962]" viewBox="0 0 32 32">
+              <path d="M0 24 L0 32 L8 32 M0 24 L8 24 L8 32" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+            <svg className="absolute bottom-4 right-4 w-8 h-8 text-[#c9a962]" viewBox="0 0 32 32">
+              <path d="M32 24 L32 32 L24 32 M32 24 L24 24 L24 32" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+
+            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans mb-4">{content.riskCalculator.subheadline}</p>
+            <h2 className="text-4xl lg:text-5xl font-light mb-6">{content.riskCalculator.headline}</h2>
+            <p className="text-xl text-[#666] mb-10 max-w-2xl mx-auto font-light">{content.riskCalculator.description}</p>
+
+            <button className="bg-[#2d2d2d] text-[#f8f5f0] px-12 py-5 tracking-[0.2em] uppercase text-sm font-sans hover:bg-[#1a1a1a] transition-colors">
+              {content.riskCalculator.cta}
+            </button>
+            <p className="text-sm text-[#666] mt-6 font-sans">{content.riskCalculator.privacyNote}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. What To Expect */}
+      <section className="py-24 bg-[#2d2d2d] text-[#f8f5f0]">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">The Process</p>
+            <h2 className="text-4xl font-light mt-4">{content.whatToExpect.headline}</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {content.whatToExpect.steps.map((step, i) => (
+              <div key={i} className="text-center">
+                <div className="w-16 h-16 rounded-full bg-[#c9a962] flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-light text-[#2d2d2d]">{step.number}</span>
+                </div>
+                <h3 className="text-xl font-light mb-3 text-[#c9a962]">{step.title}</h3>
+                <p className="text-[#f8f5f0]/70 font-light text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center mt-12 text-[#f8f5f0]/60 font-light italic">{content.whatToExpect.reassurance}</p>
+        </div>
+      </section>
+
+      {/* 14. Guarantee Section */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#c9a962] text-sm tracking-[0.4em] uppercase font-sans">Distinction</p>
-            <h2 className="text-4xl font-light mt-4">{content.comparison.headline}</h2>
-            <p className="text-[#666] mt-4 font-light">{content.comparison.subheadline}</p>
-          </div>
+          <div className="text-center relative">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="w-16 h-px bg-[#c9a962]"/>
+              <svg className="w-8 h-8 text-[#c9a962]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+              </svg>
+              <div className="w-16 h-px bg-[#c9a962]"/>
+            </div>
 
-          <div className="border border-[#2d2d2d]/10">
-            {content.comparison.capabilities.map((cap, i) => (
-              <div key={i} className={`flex items-center gap-6 px-8 py-6 ${i !== content.comparison.capabilities.length - 1 ? 'border-b border-[#2d2d2d]/10' : ''}`}>
-                <div className="w-10 h-10 rounded-full border border-[#c9a962] flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#c9a962]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="font-light text-lg">{cap}</span>
-              </div>
-            ))}
+            <h2 className="text-4xl font-light mb-6">{content.guarantee.headline}</h2>
+            <p className="text-xl text-[#666] mb-4 max-w-2xl mx-auto font-light leading-relaxed">
+              {content.guarantee.text}
+            </p>
+            <p className="text-[#c9a962] font-sans text-sm italic">
+              {content.guarantee.subtext}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials - Refined Quotes */}
+      {/* 15. Testimonials Grid (non-featured) */}
       <section className="py-24 bg-[#2d2d2d] text-[#f8f5f0]">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -171,21 +377,21 @@ export default function LuxuryConciergeV3() {
             <h2 className="text-4xl font-light mt-4">Words of Confidence</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {content.testimonials.slice(0, 4).map((testimonial, i) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {nonFeaturedTestimonials.map((testimonial, i) => (
               <div key={i} className="relative">
                 {/* Decorative quote */}
-                <div className="absolute -top-6 left-8 text-[#c9a962] text-8xl font-serif opacity-30">&ldquo;</div>
+                <div className="absolute -top-4 left-6 text-[#c9a962] text-6xl font-serif opacity-30">&ldquo;</div>
 
-                <div className="bg-[#f8f5f0] text-[#2d2d2d] p-10 relative">
-                  <p className="text-xl font-light italic leading-relaxed mb-8 relative z-10">
+                <div className="bg-[#f8f5f0] text-[#2d2d2d] p-8 relative h-full flex flex-col">
+                  <p className="text-lg font-light italic leading-relaxed mb-6 relative z-10 flex-1">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-px h-12 bg-[#c9a962]"/>
+                    <div className="w-px h-10 bg-[#c9a962]"/>
                     <div>
                       <div className="font-semibold text-[#2d2d2d]">{testimonial.author}</div>
-                      <div className="text-sm text-[#c9a962] font-sans tracking-wider">{testimonial.role}</div>
+                      <div className="text-xs text-[#c9a962] font-sans tracking-wider">{testimonial.role}</div>
                     </div>
                   </div>
                 </div>
@@ -195,15 +401,40 @@ export default function LuxuryConciergeV3() {
         </div>
       </section>
 
-      {/* CTA - Understated Elegance */}
+      {/* 16. Community/Newsletter */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-8">
-          <div className="text-center relative">
+          <div className="bg-[#f0ebe3] p-12 md:p-16 text-center relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#c9a962]"/>
+
+            <h2 className="text-3xl font-light mb-4">{content.community.headline}</h2>
+            <p className="text-[#666] mb-8 font-light">{content.community.description}</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-4 border border-[#2d2d2d]/20 bg-white font-sans text-sm focus:outline-none focus:border-[#c9a962]"
+              />
+              <button className="bg-[#2d2d2d] text-[#f8f5f0] px-8 py-4 tracking-[0.15em] uppercase text-sm font-sans hover:bg-[#1a1a1a] transition-colors whitespace-nowrap">
+                {content.community.cta}
+              </button>
+            </div>
+
+            <p className="text-sm text-[#666] mt-6 font-sans">{content.community.socialProof}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 17. Final CTA with urgency text */}
+      <section className="py-24 bg-[#2d2d2d]">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center text-[#f8f5f0] relative">
             {/* Decorative frame */}
             <div className="absolute inset-0 border border-[#c9a962]/30 transform scale-95"/>
-            <div className="absolute inset-0 border border-[#2d2d2d]"/>
+            <div className="absolute inset-0 border border-[#f8f5f0]/10"/>
 
-            <div className="p-16 relative">
+            <div className="p-12 md:p-16 relative">
               {/* Corner ornaments */}
               <svg className="absolute top-4 left-4 w-8 h-8 text-[#c9a962]" viewBox="0 0 32 32">
                 <path d="M0 8 L0 0 L8 0 M0 8 L8 8 L8 0" fill="none" stroke="currentColor" strokeWidth="1"/>
@@ -219,21 +450,39 @@ export default function LuxuryConciergeV3() {
               </svg>
 
               <h2 className="text-4xl lg:text-5xl font-light mb-6">{content.cta.headline}</h2>
-              <p className="text-xl text-[#666] mb-12 max-w-2xl mx-auto font-light">{content.cta.subheadline}</p>
+              <p className="text-xl text-[#f8f5f0]/70 mb-10 max-w-2xl mx-auto font-light">{content.cta.subheadline}</p>
 
-              <button className="bg-[#2d2d2d] text-[#f8f5f0] px-16 py-5 tracking-[0.2em] uppercase text-sm font-sans hover:bg-[#1a472a] transition-colors">
-                {content.cta.button}
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-[#c9a962] text-[#2d2d2d] px-12 py-5 tracking-[0.2em] uppercase text-sm font-sans font-semibold hover:bg-[#b8944f] transition-colors">
+                  {content.cta.button}
+                </button>
+                <button className="border border-[#f8f5f0]/30 text-[#f8f5f0] px-12 py-5 tracking-[0.2em] uppercase text-sm font-sans hover:bg-[#f8f5f0]/10 transition-colors">
+                  {content.cta.secondaryButton}
+                </button>
+              </div>
+
+              <p className="text-[#c9a962] text-sm mt-8 font-sans tracking-wider">{content.cta.urgencyText}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-[#2d2d2d] text-[#f8f5f0]">
+      {/* 18. Footer with certifications */}
+      <footer className="py-12 bg-[#1a1a1a] text-[#f8f5f0]">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#f8f5f0]/60 text-sm font-sans">DarkWebIQ — Luxury Concierge V3 Theme Preview</p>
+          <div className="text-center mb-8">
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
+              {content.footer.certifications.map((cert, i) => (
+                <span key={i} className="text-[#f8f5f0]/60 text-sm font-sans tracking-wider border border-[#f8f5f0]/20 px-4 py-2">
+                  {cert}
+                </span>
+              ))}
+            </div>
+            <p className="text-[#c9a962] text-sm font-sans">{content.footer.trustedBy}</p>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[#f8f5f0]/10">
+            <p className="text-[#f8f5f0]/40 text-sm font-sans">DarkWebIQ - Luxury Concierge V3 Theme Preview</p>
             <div className="flex items-center gap-4">
               <div className="w-8 h-px bg-[#c9a962]"/>
               <span className="text-[#c9a962] text-sm tracking-widest font-sans uppercase">Est. MMXXIV</span>
@@ -242,6 +491,16 @@ export default function LuxuryConciergeV3() {
           </div>
         </div>
       </footer>
+
+      {/* 19. Sticky Mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#2d2d2d] border-t border-[#c9a962]/30 p-4 md:hidden z-50">
+        <button className="w-full bg-[#c9a962] text-[#2d2d2d] py-4 tracking-[0.15em] uppercase text-sm font-sans font-semibold">
+          {content.hero.cta}
+        </button>
+      </div>
+
+      {/* Spacer for sticky mobile CTA */}
+      <div className="h-20 md:hidden"/>
     </div>
   );
 }

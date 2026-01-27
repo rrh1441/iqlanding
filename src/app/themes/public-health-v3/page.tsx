@@ -10,18 +10,21 @@ export default function PublicHealthV3() {
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
-          <span>Active Threat Level: <strong>ELEVATED</strong> — Ransomware activity detected in your sector</span>
+          <span>{content.urgency.headline}: {content.urgency.text}</span>
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="bg-[#1a5f4a] text-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-white/80 hover:text-white transition-colors text-sm">
-            ← All Themes
+          <Link href="/" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
+            DarkWebIQ
           </Link>
           <div className="flex items-center gap-6">
-            <span className="text-xs tracking-wider uppercase text-white/60">Threat Dashboard V3</span>
+            <span className="hidden md:block text-xs text-white/60">{content.footer.trustedBy}</span>
+            <button className="bg-white text-[#1a5f4a] px-6 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors">
+              {content.hero.cta}
+            </button>
           </div>
         </div>
       </nav>
@@ -33,7 +36,7 @@ export default function PublicHealthV3() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium mb-6">
                 <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"/>
-                Critical Advisory
+                {content.hero.preheadline}
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
                 {content.hero.headline}
@@ -46,7 +49,7 @@ export default function PublicHealthV3() {
                   {content.hero.cta}
                 </button>
                 <button className="border-2 border-[#1a5f4a] text-[#1a5f4a] px-8 py-4 rounded-lg font-semibold hover:bg-[#1a5f4a]/5 transition-colors">
-                  View Guidelines
+                  {content.hero.secondaryCta}
                 </button>
               </div>
             </div>
@@ -94,13 +97,86 @@ export default function PublicHealthV3() {
         </div>
       </section>
 
+      {/* Social Proof */}
+      <section className="py-6 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <span className="text-xs tracking-wider uppercase text-gray-500 font-semibold">{content.socialProof.headline}</span>
+          <div className="flex flex-wrap justify-center gap-8">
+            {content.socialProof.logos.map((logo, i) => (
+              <span key={i} className="text-sm text-gray-400">{logo}</span>
+            ))}
+          </div>
+          <span className="text-sm font-semibold text-[#1a5f4a]">{content.socialProof.metric}</span>
+        </div>
+      </section>
+
+      {/* Featured Testimonial */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm">
+            <svg className="w-10 h-10 text-[#1a5f4a]/30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <blockquote className="text-xl lg:text-2xl leading-relaxed mb-6 text-gray-800">
+              {content.testimonials.find(t => 'featured' in t && t.featured)?.quote}
+            </blockquote>
+            <div className="font-semibold text-gray-900">{content.testimonials.find(t => 'featured' in t && t.featured)?.author}</div>
+            <div className="text-sm text-[#1a5f4a]">{content.testimonials.find(t => 'featured' in t && t.featured)?.role}</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who This Is For */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Target Profiles</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.whoThisIsFor.headline}</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.whoThisIsFor.profiles.map((profile, i) => (
+              <div key={i} className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-[#1a5f4a] mb-3">{profile.title}</h3>
+                <p className="text-sm text-gray-600">{profile.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study */}
+      <section className="py-16 bg-[#1a5f4a] text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="text-white/60 text-sm font-semibold tracking-wider uppercase">Case Study</span>
+          <h2 className="text-3xl font-bold mt-3 mb-2">{content.caseStudy.headline}</h2>
+          <p className="text-white/60 mb-12">{content.caseStudy.company}</p>
+
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            {content.caseStudy.timeline.map((item, i) => (
+              <div key={i} className="bg-white/10 rounded-xl p-6">
+                <div className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-2">{item.day}</div>
+                <p className="text-sm text-white/90">{item.event}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-white text-gray-900 rounded-xl p-8 text-center">
+            <p className="text-xl font-semibold mb-6">{content.caseStudy.outcome}</p>
+            <button className="bg-[#1a5f4a] text-white px-10 py-4 rounded-lg font-semibold hover:bg-[#154d3c] transition-colors">
+              {content.caseStudy.cta}
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
       <section className="py-16 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">{content.statsHeadline}</h2>
-              <p className="text-gray-500 text-sm mt-1">Real-time protection metrics</p>
+              <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Survey Data</span>
+              <h2 className="text-2xl font-bold text-gray-900 mt-2">{content.statsHeadline}</h2>
             </div>
             <div className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">
               Last updated: 2 min ago
@@ -178,8 +254,42 @@ export default function PublicHealthV3() {
         </div>
       </section>
 
+      {/* Comparison */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Coverage Assessment</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.comparison.headline}</h2>
+            <p className="text-gray-500 mt-3">{content.comparison.subheadline}</p>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <div className="hidden md:grid grid-cols-2 border-b border-gray-200">
+              <div className="p-4 text-sm font-semibold text-gray-500 border-r border-gray-200">Traditional Tools</div>
+              <div className="p-4 text-sm font-semibold text-[#1a5f4a]">DarkWebIQ</div>
+            </div>
+            {content.comparison.capabilitiesEnhanced.map((cap, i) => (
+              <div key={i} className={`grid grid-cols-1 md:grid-cols-2 ${i !== content.comparison.capabilitiesEnhanced.length - 1 ? 'border-b border-gray-100' : ''} hover:bg-gray-50 transition-colors`}>
+                <div className="px-6 py-5 flex items-start gap-4 md:border-r border-gray-100 bg-gray-50/50">
+                  <span className="text-red-500">✗</span>
+                  <span className="text-gray-500">{cap.theirs}</span>
+                </div>
+                <div className="px-6 py-5 flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">{cap.ours}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Solutions */}
-      <section className="py-16 bg-[#1a5f4a]/5">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Solutions</span>
@@ -217,28 +327,48 @@ export default function PublicHealthV3() {
         </div>
       </section>
 
-      {/* Comparison */}
+      {/* Free Assessment */}
+      <section className="py-16 bg-[#1a5f4a]">
+        <div className="max-w-4xl mx-auto px-6 text-center text-white">
+          <h2 className="text-3xl font-bold mb-4">{content.riskCalculator.headline}</h2>
+          <p className="text-lg text-white/80 mb-2">{content.riskCalculator.subheadline}</p>
+          <p className="text-white/60 mb-8">{content.riskCalculator.description}</p>
+          <button className="bg-white text-[#1a5f4a] px-10 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+            {content.riskCalculator.cta}
+          </button>
+          <p className="text-xs text-white/50 mt-4">{content.riskCalculator.privacyNote}</p>
+        </div>
+      </section>
+
+      {/* What To Expect */}
       <section className="py-16">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Coverage Assessment</span>
-            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.comparison.headline}</h2>
-            <p className="text-gray-500 mt-3">{content.comparison.subheadline}</p>
+            <span className="text-[#1a5f4a] text-sm font-semibold tracking-wider uppercase">Process</span>
+            <h2 className="text-3xl font-bold mt-3 text-gray-900">{content.whatToExpect.headline}</h2>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-            {content.comparison.capabilities.map((cap, i) => (
-              <div key={i} className={`flex items-center gap-4 px-6 py-5 ${i !== content.comparison.capabilities.length - 1 ? 'border-b border-gray-100' : ''} hover:bg-gray-50 transition-colors`}>
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+          <div className="grid md:grid-cols-3 gap-6">
+            {content.whatToExpect.steps.map((step, i) => (
+              <div key={i} className="bg-white rounded-xl p-8 border border-gray-200 text-center">
+                <div className="w-16 h-16 bg-[#1a5f4a] text-white flex items-center justify-center mx-auto mb-6 rounded-xl text-2xl font-bold">
+                  {step.number}
                 </div>
-                <span className="text-gray-700 font-medium">{cap}</span>
-                <span className="ml-auto text-xs text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full">Protected</span>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900">{step.title}</h3>
+                <p className="text-sm text-gray-600">{step.description}</p>
               </div>
             ))}
           </div>
+          <p className="text-center text-sm text-gray-500 mt-12 italic">{content.whatToExpect.reassurance}</p>
+        </div>
+      </section>
+
+      {/* Guarantee */}
+      <section className="py-10 bg-green-50 border-y border-green-200">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h3 className="text-lg font-semibold text-green-800 mb-4">{content.guarantee.headline}</h3>
+          <p className="text-gray-700 mb-2">{content.guarantee.text}</p>
+          <p className="text-sm text-gray-500 italic">{content.guarantee.subtext}</p>
         </div>
       </section>
 
@@ -251,7 +381,7 @@ export default function PublicHealthV3() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {content.testimonials.slice(0, 6).map((testimonial, i) => (
+            {content.testimonials.filter(t => !('featured' in t && t.featured)).slice(0, 5).map((testimonial, i) => (
               <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -271,30 +401,64 @@ export default function PublicHealthV3() {
         </div>
       </section>
 
+      {/* Community */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-200">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">{content.community.headline}</h2>
+            <p className="text-gray-600 mb-6">{content.community.description}</p>
+            <button className="bg-[#1a5f4a] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#154d3c] transition-colors">
+              {content.community.cta}
+            </button>
+            <p className="text-xs text-gray-500 mt-4">{content.community.socialProof}</p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-[#1a5f4a]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
+        <div className="max-w-4xl mx-auto px-6 text-center text-white">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-6">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             Early Detection Saves Organizations
           </div>
-          <h2 className="text-4xl font-bold text-white mb-6">{content.cta.headline}</h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">{content.cta.subheadline}</p>
-          <button className="bg-white text-[#1a5f4a] px-10 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-            {content.cta.button}
-          </button>
+          <h2 className="text-4xl font-bold mb-6">{content.cta.headline}</h2>
+          <p className="text-xl text-white/80 mb-4 max-w-2xl mx-auto">{content.cta.subheadline}</p>
+          <p className="text-sm text-white/60 mb-10">{content.cta.urgencyText}</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="bg-white text-[#1a5f4a] px-10 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+              {content.cta.button}
+            </button>
+            <button className="border-2 border-white text-white px-10 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+              {content.cta.secondaryButton}
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm">
-          <p className="text-gray-400">DarkWebIQ — Public Health V3 Theme Preview</p>
-          <p className="text-gray-400">Cyber Defense Agency</p>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-wrap justify-center gap-4">
+              {content.footer.certifications.map((cert, i) => (
+                <span key={i} className="text-xs text-gray-400 border border-gray-700 px-3 py-1 rounded">{cert}</span>
+              ))}
+            </div>
+            <p className="text-sm text-gray-400">{content.footer.trustedBy}</p>
+            <p className="text-xs text-gray-500">© 2026 DarkWebIQ</p>
+          </div>
         </div>
       </footer>
+
+      {/* Sticky Mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50">
+        <button className="w-full bg-[#1a5f4a] text-white py-4 rounded-lg font-semibold">
+          {content.hero.cta}
+        </button>
+      </div>
     </div>
   );
 }

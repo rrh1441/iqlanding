@@ -22,11 +22,14 @@ export default function DigitalTopographyV3() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/90 backdrop-blur-sm border-b border-[#b87333]/30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-[#b87333] hover:text-[#d4894a] transition-colors text-sm tracking-widest uppercase">
-            ← All Themes
+            DarkWebIQ
           </Link>
-          <button className="px-6 py-2 border border-[#b87333] text-[#b87333] hover:bg-[#b87333] hover:text-[#1a1a2e] transition-all text-xs tracking-widest uppercase">
-            {content.hero.cta}
-          </button>
+          <div className="flex items-center gap-6">
+            <span className="hidden md:block text-xs text-[#888]">{content.footer.trustedBy}</span>
+            <button className="px-6 py-2 bg-[#b87333] text-[#1a1a2e] hover:bg-[#d4894a] transition-all text-xs tracking-widest uppercase">
+              {content.hero.cta}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -44,16 +47,14 @@ export default function DigitalTopographyV3() {
               {content.hero.subheadline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-[#b87333] text-[#1a1a2e] hover:bg-[#d4894a] transition-all duration-300 tracking-widest uppercase text-sm">
+              <button className="px-8 py-4 bg-[#b87333] text-[#1a1a2e] hover:bg-[#d4894a] transition-all tracking-widest uppercase text-sm">
                 {content.hero.cta}
               </button>
-              <button className="group relative px-8 py-4 bg-transparent border border-[#b87333] text-[#b87333] hover:bg-[#b87333] hover:text-[#1a1a2e] transition-all duration-300 tracking-widest uppercase text-sm">
+              <button className="px-8 py-4 border border-[#b87333] text-[#b87333] hover:bg-[#b87333] hover:text-[#1a1a2e] transition-all tracking-widest uppercase text-sm">
                 {content.hero.secondaryCta}
               </button>
             </div>
           </div>
-
-          {/* Iceberg Visual */}
           <div className="relative h-[500px] hidden lg:block">
             <svg viewBox="0 0 400 500" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 40px rgba(184, 115, 51, 0.2))' }}>
               <line x1="0" y1="180" x2="400" y2="180" stroke="#b87333" strokeWidth="1" strokeDasharray="4 4" opacity="0.5"/>
@@ -74,6 +75,7 @@ export default function DigitalTopographyV3() {
             <span className="text-sm font-medium uppercase tracking-widest text-[#b87333]">{content.urgency.headline}</span>
           </div>
           <p className="text-sm text-[#b8b8b8]">{content.urgency.text}</p>
+          <span className="text-xs text-[#666]">{content.urgency.updateDate}</span>
         </div>
       </section>
 
@@ -104,6 +106,24 @@ export default function DigitalTopographyV3() {
         </div>
       </section>
 
+      {/* Who This Is For */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-[#b87333] text-xs tracking-[0.4em] uppercase">Target Profiles</span>
+            <h2 className="text-3xl font-light mt-4">{content.whoThisIsFor.headline}</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.whoThisIsFor.profiles.map((profile, i) => (
+              <div key={i} className="bg-[#16213e]/30 p-8 border border-[#b87333]/20 hover:border-[#b87333]/50 transition-all text-center">
+                <h3 className="text-lg font-medium mb-3 text-[#b87333]">{profile.title}</h3>
+                <p className="text-sm text-[#888]">{profile.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Case Study */}
       <section className="py-32 bg-[#0f3460]/30">
         <div className="max-w-6xl mx-auto px-6">
@@ -122,14 +142,14 @@ export default function DigitalTopographyV3() {
 
           <div className="bg-[#16213e]/50 p-8 border border-[#b87333]/30 text-center">
             <p className="text-2xl font-light text-[#e8e8e8] mb-6">{content.caseStudy.outcome}</p>
-            <button className="px-8 py-4 bg-[#b87333] text-[#1a1a2e] tracking-widest uppercase text-sm">
+            <button className="px-8 py-4 bg-[#b87333] text-[#1a1a2e] tracking-widest uppercase text-sm hover:bg-[#d4894a] transition-colors">
               {content.caseStudy.cta}
             </button>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats */}
       <section className="py-32 relative">
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="text-center mb-16">
@@ -159,8 +179,8 @@ export default function DigitalTopographyV3() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {content.howItWorks.steps.map((step, i) => (
-              <div key={i} className="bg-[#16213e]/30 p-8 border border-[#b87333]/20">
-                <span className="text-[#b87333] text-xs tracking-widest">LAYER {i + 1}</span>
+              <div key={i} className="bg-[#16213e]/30 p-8 border border-[#b87333]/20 hover:border-[#b87333]/50 transition-all">
+                <span className="text-[#b87333] text-3xl font-light">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="text-xl font-light mt-4 mb-3">{step.title}</h3>
                 <p className="text-[#888]">{step.description}</p>
               </div>
@@ -169,8 +189,38 @@ export default function DigitalTopographyV3() {
         </div>
       </section>
 
-      {/* Solutions */}
+      {/* Comparison */}
       <section className="py-32 bg-[#16213e]/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-[#b87333] text-xs tracking-[0.4em] uppercase">Capability Matrix</span>
+            <h2 className="text-4xl font-light mt-4">{content.comparison.headline}</h2>
+            <p className="text-[#888] mt-4">{content.comparison.subheadline}</p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="hidden md:grid grid-cols-2 gap-8 pb-4 border-b border-[#b87333]/30">
+              <span className="text-xs tracking-widest uppercase text-[#666]">Traditional Tools</span>
+              <span className="text-xs tracking-widest uppercase text-[#b87333]">DarkWebIQ</span>
+            </div>
+            {content.comparison.capabilitiesEnhanced.map((cap, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4 border-b border-[#b87333]/10">
+                <div className="flex items-start gap-4">
+                  <span className="text-red-400">✗</span>
+                  <span className="text-[#666]">{cap.theirs}</span>
+                </div>
+                <div className="flex items-start gap-4">
+                  <span className="text-[#b87333]">✓</span>
+                  <span className="text-[#e8e8e8]">{cap.ours}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions */}
+      <section className="py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <span className="text-[#b87333] text-xs tracking-[0.4em] uppercase">Terrain Analysis</span>
@@ -190,39 +240,38 @@ export default function DigitalTopographyV3() {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="py-32">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-[#b87333] text-xs tracking-[0.4em] uppercase">Capability Matrix</span>
-            <h2 className="text-4xl font-light mt-4">{content.comparison.headline}</h2>
-            <p className="text-[#888] mt-4">{content.comparison.subheadline}</p>
-          </div>
-
-          <div className="space-y-3">
-            {content.comparison.capabilities.map((cap, i) => (
-              <div key={i} className="flex items-center gap-6 p-6 bg-[#16213e]/30 border-l-2 border-[#b87333]">
-                <div className="w-8 h-8 rounded-full border border-[#b87333] flex items-center justify-center">
-                  <svg className="w-4 h-4 text-[#b87333]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-[#e8e8e8]">{cap}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Free Assessment */}
       <section className="py-24 bg-[#b87333]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-light text-[#1a1a2e] mb-4">{content.riskCalculator.headline}</h2>
-          <p className="text-lg text-[#1a1a2e]/80 mb-8">{content.riskCalculator.description}</p>
+          <p className="text-lg text-[#1a1a2e]/80 mb-2">{content.riskCalculator.subheadline}</p>
+          <p className="text-[#1a1a2e]/70 mb-8">{content.riskCalculator.description}</p>
           <button className="px-10 py-4 bg-[#1a1a2e] text-[#e8e8e8] tracking-widest uppercase text-sm hover:bg-[#16213e] transition-colors">
             {content.riskCalculator.cta}
           </button>
           <p className="text-xs text-[#1a1a2e]/60 mt-4">{content.riskCalculator.privacyNote}</p>
+        </div>
+      </section>
+
+      {/* What To Expect */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-[#b87333] text-xs tracking-[0.4em] uppercase">Process</span>
+            <h2 className="text-3xl font-light mt-4">{content.whatToExpect.headline}</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {content.whatToExpect.steps.map((step, i) => (
+              <div key={i} className="text-center">
+                <div className="w-16 h-16 bg-[#b87333] text-[#1a1a2e] flex items-center justify-center mx-auto mb-6 text-2xl font-light">
+                  {step.number}
+                </div>
+                <h3 className="text-lg font-medium mb-3">{step.title}</h3>
+                <p className="text-sm text-[#888]">{step.description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm text-[#666] mt-12 italic">{content.whatToExpect.reassurance}</p>
         </div>
       </section>
 
@@ -257,7 +306,19 @@ export default function DigitalTopographyV3() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Community */}
+      <section className="py-20 bg-[#16213e]/50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-light mb-4">{content.community.headline}</h2>
+          <p className="text-[#888] mb-6">{content.community.description}</p>
+          <button className="px-8 py-3 bg-[#e8e8e8] text-[#1a1a2e] tracking-widest uppercase text-sm hover:bg-[#b87333] transition-colors">
+            {content.community.cta}
+          </button>
+          <p className="text-xs text-[#666] mt-4">{content.community.socialProof}</p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
       <section className="py-32 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f3460]/50 to-transparent"/>
         <div className="max-w-3xl mx-auto px-6 text-center relative">
@@ -279,15 +340,23 @@ export default function DigitalTopographyV3() {
       <footer className="py-12 border-t border-[#b87333]/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center gap-4">
               {content.footer.certifications.map((cert, i) => (
                 <span key={i} className="text-xs text-[#666] border border-[#b87333]/30 px-3 py-1">{cert}</span>
               ))}
             </div>
             <p className="text-sm text-[#666]">{content.footer.trustedBy}</p>
+            <p className="text-xs text-[#666]">© 2026 DarkWebIQ</p>
           </div>
         </div>
       </footer>
+
+      {/* Sticky Mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1a1a2e] border-t border-[#b87333]/30 p-4 md:hidden z-50">
+        <button className="w-full bg-[#b87333] text-[#1a1a2e] py-4 tracking-widest uppercase text-sm font-medium">
+          {content.hero.cta}
+        </button>
+      </div>
     </div>
   );
 }
