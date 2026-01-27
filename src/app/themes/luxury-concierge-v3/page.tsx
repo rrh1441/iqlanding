@@ -346,29 +346,6 @@ export default function LuxuryConciergeV3() {
         </div>
       </section>
 
-      {/* 14. Guarantee Section */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="text-center relative">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="w-16 h-px bg-[#c9a962]"/>
-              <svg className="w-8 h-8 text-[#c9a962]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-              </svg>
-              <div className="w-16 h-px bg-[#c9a962]"/>
-            </div>
-
-            <h2 className="text-4xl font-light mb-6">{content.guarantee.headline}</h2>
-            <p className="text-xl text-[#666] mb-4 max-w-2xl mx-auto font-light leading-relaxed">
-              {content.guarantee.text}
-            </p>
-            <p className="text-[#c9a962] font-sans text-sm italic">
-              {content.guarantee.subtext}
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* 15. Testimonials Grid (non-featured) */}
       <section className="py-24 bg-[#2d2d2d] text-[#f8f5f0]">
         <div className="max-w-6xl mx-auto px-8">

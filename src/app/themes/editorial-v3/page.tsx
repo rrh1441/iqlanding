@@ -334,28 +334,6 @@ export default function EditorialV3() {
         </div>
       </section>
 
-      {/* 14. Guarantee Section */}
-      <section className="py-24">
-        <div className="max-w-3xl mx-auto px-8 text-center">
-          <div className="inline-block border border-[#1a1a1a]/20 p-12 md:p-16">
-            <div className="w-16 h-16 rounded-full border-2 border-[#1e4d3d] flex items-center justify-center mx-auto mb-8">
-              <svg className="w-8 h-8 text-[#1e4d3d]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-              </svg>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-['Georgia',serif] leading-tight mb-6">
-              {content.guarantee.headline}
-            </h2>
-            <p className="text-lg text-[#1a1a1a]/80 mb-4 max-w-lg mx-auto">
-              {content.guarantee.text}
-            </p>
-            <p className="text-sm text-[#1e4d3d] italic font-['Georgia',serif]">
-              {content.guarantee.subtext}
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* 15. Testimonials Grid (non-featured) */}
       <section className="py-24 bg-[#f5f3f0]">
         <div className="max-w-7xl mx-auto px-8">

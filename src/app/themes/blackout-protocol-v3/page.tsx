@@ -360,18 +360,6 @@ export default function BlackoutProtocolV3() {
         </div>
       </section>
 
-      {/* 14. Guarantee Section */}
-      <section className="py-16 px-6 bg-[#00d4ff]/5 border-y border-[#00d4ff]/30">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="w-16 h-16 border-2 border-[#00d4ff] flex items-center justify-center mx-auto mb-6">
-            <span className="text-[#00d4ff] text-2xl font-bold">!</span>
-          </div>
-          <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-tight mb-4">{content.guarantee.headline}</h2>
-          <p className="text-[#ccc] text-lg mb-4">{content.guarantee.text}</p>
-          <p className="text-[#888] text-sm italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* 15. Testimonials Grid (non-featured) */}
       <section className="py-20 px-6 bg-[#050505]">
         <div className="max-w-7xl mx-auto">

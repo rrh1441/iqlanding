@@ -312,15 +312,6 @@ export default function NeueV3() {
         </div>
       </section>
 
-      {/* Guarantee Section */}
-      <section className="py-12 md:py-16 border-y border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
-          <h3 className="text-lg md:text-xl font-extrabold uppercase tracking-[0.1em] mb-4">{content.guarantee.headline}</h3>
-          <p className="text-base md:text-lg text-gray-700 mb-2">{content.guarantee.text}</p>
-          <p className="text-sm text-gray-500 italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* Testimonials Grid */}
       <section className="py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-8">

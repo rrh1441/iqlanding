@@ -36,11 +36,6 @@ export const contentV3 = {
     outcome: "Attack prevented. Zero downtime. Zero data loss. Zero headlines.",
     cta: "Get Your Threat Assessment"
   },
-  guarantee: {
-    headline: "Our Guarantee",
-    text: "If we don't identify at least one actionable threat in your first 90 days, we'll refund your entire investment. No questions asked.",
-    subtext: "We've never had to honor this guarantee. There's always something."
-  },
   stats: [
     { number: "72", label: "Ransomware Attacks Intercepted in Q1 2026" },
     { number: "$50MM", label: "In Verified Losses Prevented" },
