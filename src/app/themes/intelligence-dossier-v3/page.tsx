@@ -17,7 +17,7 @@ export default function IntelligenceDossierV3() {
           </Link>
           <div className="flex items-center gap-6">
             <span className="hidden md:block text-xs font-sans text-[#666]">{content.footer.trustedBy}</span>
-            <button className="font-sans bg-[#1a1a2e] text-[#f8f6f1] px-4 py-1.5 tracking-wider uppercase text-xs hover:bg-[#c41e3a] transition-colors">
+            <button className="font-sans bg-[#1a1a2e] text-[#f8f6f1] px-3 py-1.5 text-xs font-medium hover:bg-[#c41e3a] transition-colors">
               {content.hero.cta}
             </button>
           </div>

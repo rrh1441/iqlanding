@@ -23,7 +23,7 @@ export default function BrightConfidenceV3() {
             <Link href="/" className="text-gray-500 hover:text-[#635bff] transition-colors text-sm font-medium hidden md:block">
               ← All Themes
             </Link>
-            <button className="bg-[#635bff] text-white px-4 py-1.5 rounded-full font-semibold text-sm hover:bg-[#4f46e5] transition-colors">
+            <button className="bg-[#635bff] text-white px-3 py-1.5 rounded-full font-medium text-xs hover:bg-[#4f46e5] transition-colors">
               {content.hero.cta}
             </button>
           </div>

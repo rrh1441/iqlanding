@@ -18,7 +18,7 @@ export default function EditorialV3() {
             <Link href="/" className="text-[#1a1a1a]/60 hover:text-[#1e4d3d] transition-colors text-sm tracking-wide hidden md:block">
               All Themes
             </Link>
-            <button className="bg-[#1e4d3d] text-white py-1.5 px-4 text-sm font-medium tracking-wide hover:bg-[#1a1a1a] transition-colors">
+            <button className="bg-[#1e4d3d] text-white py-1.5 px-3 text-xs font-medium hover:bg-[#1a1a1a] transition-colors">
               {content.hero.cta}
             </button>
           </div>

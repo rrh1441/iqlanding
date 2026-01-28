@@ -22,7 +22,7 @@ export default function PublicHealthV3() {
           </Link>
           <div className="flex items-center gap-6">
             <span className="hidden md:block text-xs text-white/60">{content.footer.trustedBy}</span>
-            <button className="bg-white text-[#1a5f4a] px-4 py-1.5 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-[#1a5f4a] px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-100 transition-colors">
               {content.hero.cta}
             </button>
           </div>

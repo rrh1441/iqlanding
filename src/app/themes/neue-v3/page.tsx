@@ -15,7 +15,7 @@ export default function NeueV3() {
             <span className="hidden md:block text-xs font-normal tracking-[0.1em] uppercase text-gray-500">
               {content.footer.trustedBy}
             </span>
-            <button className="bg-[#ff0066] text-white py-1.5 px-3 font-bold text-xs tracking-[0.1em] uppercase hover:bg-black transition-colors">
+            <button className="bg-[#ff0066] text-white py-1.5 px-3 font-bold text-xs hover:bg-black transition-colors">
               {content.hero.cta}
             </button>
           </div>

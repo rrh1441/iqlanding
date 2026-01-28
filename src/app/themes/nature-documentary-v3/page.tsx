@@ -21,7 +21,7 @@ export default function NatureDocumentaryV3() {
             <Link href="/" className="text-[#f5f0e8]/60 hover:text-[#d97706] transition-colors text-sm tracking-wide hidden md:block">
               ← All Themes
             </Link>
-            <button className="bg-[#d97706] text-white py-1.5 px-4 text-sm font-medium tracking-wide hover:bg-[#b45309] transition-colors rounded-sm">
+            <button className="bg-[#d97706] text-white py-1.5 px-3 text-xs font-medium hover:bg-[#b45309] transition-colors rounded-sm">
               {content.hero.cta}
             </button>
           </div>

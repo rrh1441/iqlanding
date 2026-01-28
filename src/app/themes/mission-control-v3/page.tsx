@@ -70,7 +70,7 @@ export default function MissionControlV3() {
             <Link href="/" className="text-[#64748b] hover:text-[#22c55e] transition-colors font-mono text-xs hidden md:block">
               ← BACK_TO_MENU
             </Link>
-            <button className="bg-[#22c55e] text-[#0a0f1a] px-4 py-1.5 font-mono font-bold text-xs tracking-wider hover:bg-[#16a34a] transition-colors">
+            <button className="bg-[#22c55e] text-[#0a0f1a] px-3 py-1.5 font-mono font-bold text-xs hover:bg-[#16a34a] transition-colors">
               {content.hero.cta.toUpperCase()}
             </button>
           </div>

@@ -13,7 +13,7 @@ export default function SwissIntelligenceV3() {
           </Link>
           <div className="flex items-center gap-6">
             <span className="hidden md:block text-xs text-gray-500">{content.footer.trustedBy}</span>
-            <button className="bg-black text-white py-1.5 px-4 font-bold text-xs tracking-[0.2em] uppercase hover:bg-[#ff4400] transition-colors">
+            <button className="bg-black text-white py-1.5 px-3 font-bold text-xs hover:bg-[#ff4400] transition-colors">
               {content.hero.cta}
             </button>
           </div>

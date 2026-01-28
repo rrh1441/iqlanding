@@ -26,7 +26,7 @@ export default function DigitalTopographyV3() {
           </Link>
           <div className="flex items-center gap-6">
             <span className="hidden md:block text-xs text-[#888]">{content.footer.trustedBy}</span>
-            <button className="px-4 py-1.5 bg-[#b87333] text-[#1a1a2e] hover:bg-[#d4894a] transition-colors text-xs tracking-widest uppercase">
+            <button className="px-3 py-1.5 bg-[#b87333] text-[#1a1a2e] hover:bg-[#d4894a] transition-colors text-xs font-medium">
               {content.hero.cta}
             </button>
           </div>
