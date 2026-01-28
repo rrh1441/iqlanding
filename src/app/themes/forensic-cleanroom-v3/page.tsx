@@ -20,7 +20,7 @@ export default function ForensicCleanroomV3() {
             </Link>
             <div className="flex items-center gap-6">
               <span className="hidden md:block text-xs text-gray-500">{content.footer.trustedBy}</span>
-              <button className="px-6 py-2 bg-teal-500 text-white rounded-xl font-medium hover:bg-teal-600 transition-colors shadow-lg shadow-teal-500/30">
+              <button className="px-4 py-1.5 bg-teal-500 text-white rounded-lg font-medium hover:bg-teal-600 transition-colors">
                 {content.hero.cta}
               </button>
             </div>

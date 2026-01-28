@@ -49,7 +49,7 @@ export default function BlackoutProtocolV3() {
             <span className="hidden md:block text-[#333] text-xs">|</span>
             <span className="hidden md:block text-[#666] text-xs tracking-[0.3em] uppercase">BLACKOUT_PROTOCOL_V3</span>
           </div>
-          <button className="bg-[#00d4ff] text-black px-6 py-2 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
+          <button className="bg-[#00d4ff] text-black px-4 py-1.5 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
             {content.hero.cta}
           </button>
         </div>

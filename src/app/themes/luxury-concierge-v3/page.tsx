@@ -19,7 +19,7 @@ export default function LuxuryConciergeV3() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[#c9a962] text-xs tracking-[0.2em] uppercase font-sans hidden lg:block">Luxury Concierge V3</span>
-            <button className="bg-[#c9a962] text-[#2d2d2d] px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-sans font-semibold hover:bg-[#b8944f] transition-colors">
+            <button className="bg-[#c9a962] text-[#2d2d2d] px-4 py-1.5 text-xs tracking-[0.15em] uppercase font-sans font-semibold hover:bg-[#b8944f] transition-colors">
               {content.hero.cta}
             </button>
           </div>
