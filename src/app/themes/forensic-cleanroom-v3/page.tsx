@@ -12,7 +12,7 @@ export default function ForensicCleanroomV3() {
       </div>
 
       {/* Navigation - Frosted Glass */}
-      <nav className="fixed top-0 left-0 right-0 z-50">
+      <nav className="relative">
         <div className="mx-4 mt-4 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg shadow-gray-200/50">
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link href="/" className="text-teal-600 hover:text-teal-700 transition-colors text-sm font-medium">
@@ -29,7 +29,7 @@ export default function ForensicCleanroomV3() {
       </nav>
 
       {/* Hero Section - Clean and Airy */}
-      <section className="min-h-screen flex items-center pt-24 relative">
+      <section className="min-h-screen flex items-center pt-12 relative">
         <div className="max-w-7xl mx-auto px-6 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>

@@ -19,7 +19,7 @@ export default function DigitalTopographyV3() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/90 backdrop-blur-sm border-b border-[#b87333]/30">
+      <nav className="bg-[#1a1a2e] border-b border-[#b87333]/30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-[#b87333] hover:text-[#d4894a] transition-colors text-sm tracking-widest uppercase">
             DarkWebIQ
@@ -34,7 +34,7 @@ export default function DigitalTopographyV3() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
+      <section className="relative min-h-screen flex items-center pt-12">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
             <div className="text-[#b87333] text-xs tracking-[0.4em] uppercase mb-6 font-medium">

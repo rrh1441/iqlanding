@@ -6,7 +6,7 @@ export default function NeueV3() {
     <div className="min-h-screen bg-white text-black font-['Inter',Helvetica,Arial,sans-serif]">
 
       {/* Navigation - Minimal but functional */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <nav className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="text-black hover:text-[#ff0066] transition-colors text-xs font-bold tracking-[0.15em] uppercase">
             DarkWebIQ
@@ -23,7 +23,7 @@ export default function NeueV3() {
       </nav>
 
       {/* Hero Section - Clear value proposition */}
-      <section className="min-h-screen flex flex-col justify-center px-6 md:px-8 pt-24 pb-16">
+      <section className="min-h-screen flex flex-col justify-center px-6 md:px-8 pt-12 pb-16">
         <div className="max-w-7xl mx-auto w-full">
           {/* Pre-headline for targeting */}
           <p className="text-[#ff0066] text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-6">

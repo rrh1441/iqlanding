@@ -8,7 +8,7 @@ export default function LuxuryConciergeV3() {
   return (
     <div className="min-h-screen bg-[#f8f5f0] text-[#2d2d2d] font-['Cormorant_Garamond',Georgia,serif]">
       {/* 1. Navigation with brand + CTA */}
-      <nav className="bg-[#2d2d2d] text-[#f8f5f0] sticky top-0 z-50">
+      <nav className="bg-[#2d2d2d] text-[#f8f5f0]">
         <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <Link href="/" className="text-[#c9a962] hover:text-[#f8f5f0] transition-colors text-sm tracking-widest uppercase font-sans font-medium">

@@ -10,7 +10,7 @@ export default function IntelligenceDossierV3() {
       }}/>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b-2 border-[#1a1a2e] bg-[#f8f6f1]">
+      <nav className="border-b-2 border-[#1a1a2e] bg-[#f8f6f1]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-[#c41e3a] hover:underline text-sm font-sans">
             DarkWebIQ
@@ -25,7 +25,7 @@ export default function IntelligenceDossierV3() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 relative">
+      <section className="pt-16 pb-16 relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-4 border-[#1a1a2e] p-12 lg:p-20 relative bg-[#f8f6f1]">
             <div className="max-w-3xl">

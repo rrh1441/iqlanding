@@ -9,7 +9,7 @@ export default function BrightConfidenceV3() {
     <div className="min-h-screen bg-white text-gray-900 font-['Inter',system-ui,sans-serif]">
 
       {/* 1. Navigation with brand + CTA */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+      <nav className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex gap-1">

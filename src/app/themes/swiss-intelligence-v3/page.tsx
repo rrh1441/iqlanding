@@ -6,7 +6,7 @@ export default function SwissIntelligenceV3() {
     <div className="min-h-screen bg-white text-black font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black">
+      <nav className="bg-white border-b border-black">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-black hover:text-[#ff4400] transition-colors text-sm font-bold uppercase tracking-wider">
             DarkWebIQ
@@ -21,7 +21,7 @@ export default function SwissIntelligenceV3() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative">
+      <section className="pt-20 pb-20 relative">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-[#ff4400] text-xs font-bold tracking-[0.3em] uppercase mb-4">
             {content.hero.preheadline}

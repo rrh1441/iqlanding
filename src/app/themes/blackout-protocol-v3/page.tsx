@@ -40,7 +40,7 @@ export default function BlackoutProtocolV3() {
       </div>
 
       {/* 1. Navigation with brand + CTA */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-black/95 backdrop-blur border-b border-[#333]">
+      <nav className="bg-black border-b border-[#333]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-8">
             <Link href="/" className="text-[#00d4ff] hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">
@@ -56,7 +56,7 @@ export default function BlackoutProtocolV3() {
       </nav>
 
       {/* 2. Hero with preheadline, headline, subheadline, dual CTAs */}
-      <section className="pt-28 pb-16 px-6">
+      <section className="pt-16 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-[#00d4ff] text-xs mb-4 uppercase tracking-widest">
             &gt; {content.hero.preheadline}

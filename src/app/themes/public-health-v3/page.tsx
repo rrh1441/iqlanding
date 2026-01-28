@@ -15,7 +15,7 @@ export default function PublicHealthV3() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#1a5f4a] text-white sticky top-0 z-50">
+      <nav className="bg-[#1a5f4a] text-white">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
             DarkWebIQ

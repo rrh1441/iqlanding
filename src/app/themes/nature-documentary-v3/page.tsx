@@ -9,7 +9,7 @@ export default function NatureDocumentaryV3() {
     <div className="min-h-screen bg-[#f5f0e8] text-[#2d3a2d] font-['system-ui','-apple-system',sans-serif]">
 
       {/* 1. Navigation with brand + CTA */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2d3a2d]/95 backdrop-blur text-[#f5f0e8]">
+      <nav className="bg-[#2d3a2d] text-[#f5f0e8]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
             <svg className="w-6 h-6 text-[#d97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">

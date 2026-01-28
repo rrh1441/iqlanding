@@ -9,7 +9,7 @@ export default function EditorialV3() {
     <div className="min-h-screen bg-[#faf8f5] text-[#1a1a1a] font-['Inter',system-ui,sans-serif]">
 
       {/* 1. Navigation with brand + CTA */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#faf8f5]/95 backdrop-blur-sm border-b border-[#1a1a1a]/10">
+      <nav className="bg-[#faf8f5] border-b border-[#1a1a1a]/10">
         <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
           <Link href="/" className="font-['Georgia',serif] text-xl tracking-tight text-[#1a1a1a]">
             DarkWebIQ
@@ -26,7 +26,7 @@ export default function EditorialV3() {
       </nav>
 
       {/* 2. Hero with preheadline, headline, subheadline, dual CTAs */}
-      <section className="pt-32 pb-24 border-b border-[#1a1a1a]/10">
+      <section className="pt-20 pb-24 border-b border-[#1a1a1a]/10">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">
