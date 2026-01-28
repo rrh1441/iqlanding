@@ -7,7 +7,7 @@ export const contentV3 = {
     preheadline: "For CISOs tired of chasing noise",
     headline: "All Signal. No Noise.",
     subheadline: "Your network access is for sale in private criminal channels right now. We buy it before criminals can use it—stopping ransomware attacks 23 days before execution. Every alert is real. Every threat is verified.",
-    cta: "Check If Your Access Is For Sale",
+    cta: "Check My Exposure",
     secondaryCta: "See a Sample Threat Report"
   },
   whoThisIsFor: {
