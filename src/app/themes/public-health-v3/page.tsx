@@ -363,15 +363,6 @@ export default function PublicHealthV3() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-10 bg-green-50 border-y border-green-200">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-lg font-semibold text-green-800 mb-4">{content.guarantee.headline}</h3>
-          <p className="text-gray-700 mb-2">{content.guarantee.text}</p>
-          <p className="text-sm text-gray-500 italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">

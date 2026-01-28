@@ -275,15 +275,6 @@ export default function DigitalTopographyV3() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-16 border-y border-[#b87333]/30">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-lg tracking-widest uppercase text-[#b87333] mb-4">{content.guarantee.headline}</h3>
-          <p className="text-[#b8b8b8] mb-2">{content.guarantee.text}</p>
-          <p className="text-sm text-[#666] italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="py-32 bg-[#0f3460]/20">
         <div className="max-w-7xl mx-auto px-6">

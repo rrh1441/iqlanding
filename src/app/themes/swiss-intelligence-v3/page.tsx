@@ -272,15 +272,6 @@ export default function SwissIntelligenceV3() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-12 border-y-4 border-black">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-lg font-bold tracking-widest uppercase text-[#ff4400] mb-4">{content.guarantee.headline}</h3>
-          <p className="text-gray-700 mb-2">{content.guarantee.text}</p>
-          <p className="text-sm text-gray-500 italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* Testimonials - Editorial */}
       <section className="py-24 bg-black text-white">
         <div className="max-w-7xl mx-auto px-6">

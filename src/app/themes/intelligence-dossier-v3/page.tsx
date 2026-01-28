@@ -287,15 +287,6 @@ export default function IntelligenceDossierV3() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-12 border-y-2 border-[#1a1a2e] relative">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-lg font-sans tracking-widest uppercase text-[#c41e3a] mb-4">{content.guarantee.headline}</h3>
-          <p className="text-[#444] mb-2">{content.guarantee.text}</p>
-          <p className="text-sm text-[#666] italic">{content.guarantee.subtext}</p>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="py-20 bg-[#1a1a2e] text-[#f8f6f1] relative">
         <div className="max-w-6xl mx-auto px-6">

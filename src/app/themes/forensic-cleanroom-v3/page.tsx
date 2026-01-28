@@ -337,17 +337,6 @@ export default function ForensicCleanroomV3() {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-teal-200 p-8 shadow-lg shadow-gray-100/50 text-center">
-            <h3 className="text-lg font-semibold text-teal-600 mb-4">{content.guarantee.headline}</h3>
-            <p className="text-gray-700 mb-2">{content.guarantee.text}</p>
-            <p className="text-sm text-gray-500 italic">{content.guarantee.subtext}</p>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials - Soft Cards */}
       <section className="py-24 bg-gradient-to-b from-gray-50/50 to-white">
         <div className="max-w-7xl mx-auto px-6">
